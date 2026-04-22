@@ -49,6 +49,33 @@ const Ecosystem = () => (
           </div>
         ))}
       </div>
+
+      <div className="mt-16 flex flex-col items-center text-center">
+        <p className="text-muted-foreground text-base md:text-lg max-w-xl mb-6">
+          Discutons ensemble de votre projet et explorons les synergies possibles avec notre écosystème.
+        </p>
+        <a
+          href="#contact"
+          className="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-gold text-accent-foreground font-semibold text-base shadow-gold hover:scale-[1.03] transition-transform"
+        >
+          Nous contacter maintenant
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="transition-transform group-hover:translate-x-1"
+          >
+            <path d="M5 12h14" />
+            <path d="m12 5 7 7-7 7" />
+          </svg>
+        </a>
+      </div>
     </div>
   </section>
 );
