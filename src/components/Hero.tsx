@@ -138,37 +138,29 @@ const Hero = () => {
           </form>
 
           {focused && (
-            <div className="absolute left-0 right-0 mt-2 z-20 rounded-2xl border border-border/60 bg-background/95 backdrop-blur-md shadow-elegant overflow-hidden animate-fade-up">
-              <div className="px-4 py-2 text-[10px] uppercase tracking-[0.25em] text-muted-foreground border-b border-border/60">
-                {matches.length > 0
-                  ? `${matches.length} pôle${matches.length > 1 ? "s" : ""} disponible${matches.length > 1 ? "s" : ""}`
-                  : "Aucun pôle correspondant"}
-              </div>
-              <ul className="max-h-72 overflow-y-auto py-1">
+            <div className="absolute left-0 right-0 mt-2 z-20 rounded-xl border border-primary-foreground/20 bg-primary/85 backdrop-blur-xl shadow-elegant overflow-hidden animate-fade-up">
+              <div className="flex flex-wrap gap-1.5 p-2">
+                {matches.length === 0 && (
+                  <span className="px-3 py-1.5 text-xs text-primary-foreground/70">
+                    Aucun pôle correspondant
+                  </span>
+                )}
                 {matches.map((p) => (
-                  <li key={p.title}>
-                    <a
-                      href="#poles"
-                      onMouseDown={(e) => {
-                        e.preventDefault();
-                        goToPoles();
-                        setFocused(false);
-                      }}
-                      className="flex items-center justify-between gap-3 px-4 py-3 hover:bg-muted/60 transition-colors group"
-                    >
-                      <div className="min-w-0">
-                        <div className="text-sm font-semibold text-foreground truncate">
-                          {p.title}
-                        </div>
-                        <div className="text-[11px] uppercase tracking-wider text-muted-foreground mt-0.5">
-                          {p.tag}
-                        </div>
-                      </div>
-                      <ArrowRight className="w-4 h-4 text-accent opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
-                    </a>
-                  </li>
+                  <a
+                    key={p.title}
+                    href="#poles"
+                    onMouseDown={(e) => {
+                      e.preventDefault();
+                      goToPoles();
+                      setFocused(false);
+                    }}
+                    className="group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-foreground/10 hover:bg-accent hover:text-accent-foreground border border-primary-foreground/15 hover:border-accent text-primary-foreground text-xs font-medium transition-all"
+                  >
+                    <span className="truncate max-w-[180px]">{p.title}</span>
+                    <ArrowRight className="w-3 h-3 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
+                  </a>
                 ))}
-              </ul>
+              </div>
             </div>
           )}
         </div>
