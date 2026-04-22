@@ -1,6 +1,6 @@
 import sante from "@/assets/pole-sante-maternelle.jpg";
 import consulting from "@/assets/pole-consulting-bgf.jpg";
-import auto from "@/assets/pole-auto.jpg";
+import auto from "@/assets/pole-automobile-bgf.jpg";
 import importExp from "@/assets/pole-import.jpg";
 import agro from "@/assets/pole-agro.jpg";
 import immo from "@/assets/pole-immo.jpg";
@@ -30,6 +30,7 @@ type Pole = {
     approcheIntro?: string;
     valeurAjoutee?: string[];
     engagement?: string;
+    positionnement?: string;
   };
 };
 
@@ -116,9 +117,46 @@ const poles: Pole[] = [
   },
   {
     img: auto,
-    tag: "Logistique",
+    tag: "Mobilité & Logistique",
     title: "Automobile",
-    desc: "Flotte de véhicules 4x4 destinée à la location pour les opérations de terrain, programmes humanitaires et institutions.",
+    desc: "Solution complète de mobilité et de logistique : flotte de véhicules 4x4 pour institutions, ONG, administrations et entreprises.",
+    details: {
+      intro: [
+        "Le pôle Automobile de la FONDATION BGF incarne une solution complète de mobilité et de logistique adaptée aux contextes opérationnels exigeants, notamment en République Centrafricaine.",
+        "Nous disposons d'une gamme variée de véhicules 4x4 de tout type, destinés à la location et à la mise à disposition opérationnelle, au service des institutions internationales, ONG et partenaires techniques et financiers, administrations publiques, entreprises et particuliers.",
+        "Avec une expertise de plus de 5 ans, le pôle Automobile s'est imposé comme une référence nationale en matière de fiabilité, disponibilité et qualité de service, notamment dans les zones à accès difficile.",
+      ],
+      beneficiairesLabel: "Services proposés",
+      beneficiaires: [
+        "Location de véhicules 4x4 (courte et longue durée)",
+        "Mise à disposition avec ou sans chauffeur",
+        "Transport logistique et missions terrain",
+        "Appui aux opérations humanitaires et projets de développement",
+      ],
+      objectifs: [
+        "Fournir des services de transport sécurisés, fiables et adaptés aux terrains difficiles",
+        "Améliorer la mobilité des acteurs humanitaires, institutionnels et économiques",
+        "Soutenir les opérations logistiques sur l'ensemble du territoire",
+        "Garantir une disponibilité continue des véhicules pour les missions critiques",
+        "Offrir des solutions flexibles et professionnelles aux partenaires",
+      ],
+      approcheIntro: "Notre clientèle couvre l'ensemble des acteurs nationaux et internationaux :",
+      approche: [
+        "Institutions internationales",
+        "ONG et partenaires techniques et financiers",
+        "Administrations publiques (État)",
+        "Entreprises et particuliers",
+      ],
+      valeurAjoutee: [
+        "Flotte de véhicules 4x4 adaptés aux réalités locales",
+        "Plus de 5 ans d'expérience terrain",
+        "Fiabilité reconnue par les partenaires",
+        "Réactivité et flexibilité opérationnelle",
+        "Connaissance approfondie du contexte centrafricain",
+      ],
+      positionnement:
+        "Aujourd'hui, FONDATION BGF AUTOMOBILE est considérée comme une référence en République Centrafricaine dans le domaine de la mobilité et du transport professionnel.",
+    },
   },
   {
     img: importExp,
