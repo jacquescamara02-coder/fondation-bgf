@@ -3,7 +3,7 @@ import consulting from "@/assets/pole-consulting-bgf.jpg";
 import auto from "@/assets/pole-automobile-bgf.jpg";
 import importExp from "@/assets/pole-import-export-bgf.jpg";
 import agro from "@/assets/pole-agro.jpg";
-import immo from "@/assets/pole-immo.jpg";
+import immo from "@/assets/pole-immobiliere-bgf.jpg";
 import pharma from "@/assets/pole-pharma.jpg";
 import { ArrowUpRight } from "lucide-react";
 import { useState } from "react";
@@ -212,7 +212,19 @@ const poles: Pole[] = [
     img: immo,
     tag: "Cadre de vie",
     title: "Immobilière",
-    desc: "Habitat, infrastructures et développement immobilier pour une construction et gestion responsable.",
+    desc: "Développement de logements modernes, accessibles et durables, contribuant à l'amélioration du cadre de vie.",
+    details: {
+      intro: [
+        "Le pôle Immobilière de la FONDATION BGF œuvre pour le développement de logements modernes, accessibles et durables, contribuant ainsi à l'amélioration du cadre de vie des populations.",
+        "À travers une approche responsable et structurée, ce pôle conçoit, réalise et gère des infrastructures pensées pour répondre aux besoins d'habitat d'aujourd'hui tout en anticipant les enjeux d'urbanisation de demain.",
+      ],
+      objectifs: [
+        "Construire et gérer des infrastructures modernes",
+        "Favoriser l'accès au logement",
+        "Participer à l'urbanisation durable",
+      ],
+      approche: [],
+    },
   },
   {
     img: pharma,
