@@ -430,6 +430,23 @@ const Poles = () => {
                 </ul>
               </div>
 
+              {activePole.details.domaines && activePole.details.domaines.length > 0 && (
+                <div>
+                  <div className="flex items-center gap-2 mb-4">
+                    <Layers className="w-5 h-5 text-accent" strokeWidth={2} />
+                    <h4 className="font-serif text-xl font-bold text-primary">Domaines d'intervention</h4>
+                  </div>
+                  <ul className="grid md:grid-cols-2 gap-3">
+                    {activePole.details.domaines.map((d) => (
+                      <li key={d} className="flex items-start gap-3 p-3 rounded-lg bg-muted/40 text-[15px] text-foreground leading-snug">
+                        <span className="mt-1 w-2 h-2 rounded-full bg-accent shrink-0" />
+                        <span>{d}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
               {activePole.details.approche.length > 0 && (
                 <div>
                   <div className="flex items-center gap-2 mb-4">
