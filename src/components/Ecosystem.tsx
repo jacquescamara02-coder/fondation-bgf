@@ -1,4 +1,6 @@
 import ecosystemImg from "@/assets/ecosystem-bgf.jpeg";
+import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 
 const Ecosystem = () => (
   <section id="ecosysteme" className="py-24 md:py-32 bg-secondary/30 relative overflow-hidden">
@@ -29,25 +31,29 @@ const Ecosystem = () => (
         </div>
       </div>
 
-      <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
-        {[
-          { n: "8", l: "Pôles d'activités" },
-          { n: "1", l: "Vision unifiée" },
-          { n: "100%", l: "Engagement local" },
-          { n: "∞", l: "Impact durable" },
-        ].map((s) => (
-          <div
-            key={s.l}
-            className="text-center p-5 md:p-6 rounded-2xl bg-card border border-border shadow-soft"
-          >
-            <div className="font-serif text-3xl md:text-4xl font-bold gradient-text mb-1">
-              {s.n}
+      <div className="mt-16 flex justify-center">
+        <Link
+          to="/#poles"
+          onClick={(e) => {
+            e.preventDefault();
+            const el = document.getElementById("poles");
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+          }}
+          className="group relative inline-flex items-center gap-5 px-8 py-6 md:px-10 md:py-7 rounded-2xl bg-card border border-border shadow-soft hover:shadow-elegant hover:border-accent/50 transition-all"
+          aria-label="Voir les 8 pôles d'activités"
+        >
+          <div className="text-left">
+            <div className="font-serif text-4xl md:text-5xl font-bold gradient-text leading-none mb-2">
+              8
             </div>
             <div className="text-xs md:text-sm text-muted-foreground uppercase tracking-wider font-medium">
-              {s.l}
+              Pôles d'activités
             </div>
           </div>
-        ))}
+          <span className="w-12 h-12 rounded-full bg-accent-soft group-hover:bg-accent text-accent group-hover:text-accent-foreground flex items-center justify-center transition-all group-hover:scale-110 group-hover:shadow-gold">
+            <ArrowUpRight className="w-5 h-5 group-hover:rotate-45 transition-transform" strokeWidth={2.2} />
+          </span>
+        </Link>
       </div>
 
       <div className="mt-16 flex flex-col items-center text-center">
