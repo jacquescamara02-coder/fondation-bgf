@@ -507,6 +507,26 @@ const Poles = () => {
                 </div>
               )}
 
+              {activePole.details.impact && activePole.details.impact.length > 0 && (
+                <div>
+                  <div className="flex items-center gap-2 mb-4">
+                    <TrendingUp className="w-5 h-5 text-accent" strokeWidth={2} />
+                    <h4 className="font-serif text-xl font-bold text-primary">Impact attendu</h4>
+                  </div>
+                  <ul className="grid sm:grid-cols-2 gap-3">
+                    {activePole.details.impact.map((it) => (
+                      <li
+                        key={it}
+                        className="flex items-start gap-3 p-3 rounded-lg border border-accent/30 bg-accent-soft/30 text-[15px] text-foreground"
+                      >
+                        <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" strokeWidth={2} />
+                        <span>{it}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
               {activePole.details.positionnement && (
                 <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary to-primary/90 p-6 md:p-7 text-primary-foreground">
                   <Heart className="absolute -top-4 -right-4 w-28 h-28 text-accent/20" strokeWidth={1.2} />
