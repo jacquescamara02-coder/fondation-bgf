@@ -1,4 +1,4 @@
-import sante from "@/assets/pole-sante.jpg";
+import sante from "@/assets/pole-sante-maternelle.jpg";
 import consulting from "@/assets/pole-consulting.jpg";
 import auto from "@/assets/pole-auto.jpg";
 import importExp from "@/assets/pole-import.jpg";
@@ -6,13 +6,64 @@ import agro from "@/assets/pole-agro.jpg";
 import immo from "@/assets/pole-immo.jpg";
 import pharma from "@/assets/pole-pharma.jpg";
 import { ArrowUpRight } from "lucide-react";
+import { useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
+import { Heart, Target, Compass, HandHeart } from "lucide-react";
 
-const poles = [
+type Pole = {
+  img: string;
+  tag: string;
+  title: string;
+  desc: string;
+  details?: {
+    intro: string[];
+    beneficiaires: string[];
+    objectifs: string[];
+    approche: string[];
+    engagement: string;
+  };
+};
+
+const poles: Pole[] = [
   {
     img: sante,
     tag: "À but non lucratif",
-    title: "Santé Maternelle & Infantile",
-    desc: "Programme social prioritaire pour la santé, la protection et le bien-être des mères, nouveau-nés, nourrissons et enfants.",
+    title: "Santé Maternelle et Infantile",
+    desc: "Programme social prioritaire entièrement à but non lucratif, dédié à l'amélioration de la santé des mères et des enfants à travers une approche intégrée.",
+    details: {
+      intro: [
+        "Ce programme prioritaire de la FONDATION BGF est entièrement à but non lucratif et dédié à l'amélioration de la santé des mères et des enfants.",
+        "Il repose sur une approche intégrée combinant prévention, soins, accompagnement et assistance sociale, afin de répondre aux besoins des populations les plus vulnérables.",
+        "Dans ce cadre, la fondation met en œuvre des actions solidaires de dotations gratuites au profit des publics cibles, en particulier ceux vivant dans des situations de précarité. Ces interventions visent à réduire les inégalités d'accès aux soins et à renforcer le bien-être des familles.",
+      ],
+      beneficiaires: [
+        "Les femmes enceintes",
+        "Les femmes allaitantes",
+        "Les jeunes filles en âge de procréer",
+      ],
+      objectifs: [
+        "Réduire la mortalité maternelle et infantile",
+        "Améliorer la qualité des soins néonataux et obstétricaux",
+        "Promouvoir la santé reproductive et familiale",
+        "Renforcer l'accès équitable aux services de santé pour les populations vulnérables",
+        "Mettre en place des programmes de distribution gratuite de kits et intrants essentiels (soins, hygiène, nutrition)",
+        "Sensibiliser les communautés aux bonnes pratiques de santé maternelle et infantile",
+      ],
+      approche: [
+        "Actions communautaires et campagnes de sensibilisation",
+        "Appui aux structures de santé",
+        "Distribution gratuite de matériels et produits essentiels",
+        "Partenariats avec institutions publiques et organisations internationales",
+      ],
+      engagement:
+        "La FONDATION BGF s'engage à garantir un impact durable en plaçant la mère et l'enfant au cœur de ses priorités, dans une logique de solidarité, équité et dignité humaine.",
+    },
   },
   {
     img: consulting,
@@ -52,8 +103,11 @@ const poles = [
   },
 ];
 
-const Poles = () => (
-  <section id="poles" className="py-24 md:py-32 bg-background">
+const Poles = () => {
+  const [activePole, setActivePole] = useState<Pole | null>(null);
+
+  return (
+    <section id="poles" className="py-24 md:py-32 bg-background">
     <div className="container-pro">
       <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
         <div className="max-w-2xl">
@@ -92,15 +146,129 @@ const Poles = () => (
             <div className="p-6 md:p-7">
               <div className="flex items-start justify-between gap-3 mb-3">
                 <h3 className="font-serif text-2xl font-bold text-primary leading-tight">{p.title}</h3>
-                <ArrowUpRight className="w-5 h-5 text-accent shrink-0 group-hover:rotate-45 transition-transform" />
+                {p.details ? (
+                  <button
+                    type="button"
+                    onClick={() => setActivePole(p)}
+                    aria-label={`En savoir plus sur ${p.title}`}
+                    className="shrink-0 w-10 h-10 -mt-1 -mr-1 rounded-full bg-accent-soft hover:bg-accent text-accent hover:text-accent-foreground flex items-center justify-center transition-all hover:scale-110 hover:shadow-gold"
+                  >
+                    <ArrowUpRight className="w-5 h-5 transition-transform group-hover:rotate-45" strokeWidth={2.2} />
+                  </button>
+                ) : (
+                  <ArrowUpRight className="w-5 h-5 text-accent shrink-0 group-hover:rotate-45 transition-transform" />
+                )}
               </div>
               <p className="text-muted-foreground text-[15px] leading-relaxed">{p.desc}</p>
+              {p.details && (
+                <button
+                  type="button"
+                  onClick={() => setActivePole(p)}
+                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-accent/80 transition-colors group/btn"
+                >
+                  Lire la description complète
+                  <ArrowUpRight className="w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                </button>
+              )}
             </div>
           </article>
         ))}
       </div>
     </div>
-  </section>
-);
+
+    <Dialog open={!!activePole} onOpenChange={(open) => !open && setActivePole(null)}>
+      <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto p-0 gap-0 bg-card">
+        {activePole?.details && (
+          <>
+            <div className="relative h-48 md:h-64 overflow-hidden rounded-t-lg">
+              <img
+                src={activePole.img}
+                alt={activePole.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-primary/10" />
+              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                <span className="inline-block px-3 py-1 rounded-full bg-accent text-accent-foreground text-[10px] font-bold uppercase tracking-wider mb-3">
+                  {activePole.tag}
+                </span>
+                <DialogHeader className="space-y-0">
+                  <DialogTitle className="font-serif text-3xl md:text-4xl font-bold text-primary-foreground leading-tight text-left">
+                    {activePole.title}
+                  </DialogTitle>
+                </DialogHeader>
+              </div>
+            </div>
+
+            <div className="p-6 md:p-10 space-y-8">
+              <DialogDescription asChild>
+                <div className="space-y-4 text-base text-muted-foreground leading-relaxed">
+                  {activePole.details.intro.map((para, idx) => (
+                    <p key={idx}>{para}</p>
+                  ))}
+                </div>
+              </DialogDescription>
+
+              <div className="bg-accent-soft/40 border-l-4 border-accent rounded-r-xl p-5 md:p-6">
+                <div className="flex items-center gap-2 mb-3">
+                  <HandHeart className="w-5 h-5 text-accent" strokeWidth={2} />
+                  <h4 className="font-serif text-lg font-bold text-primary">Bénéficiaires prioritaires</h4>
+                </div>
+                <ul className="space-y-2">
+                  {activePole.details.beneficiaires.map((b) => (
+                    <li key={b} className="flex items-start gap-2.5 text-[15px] text-foreground">
+                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <div className="flex items-center gap-2 mb-4">
+                  <Target className="w-5 h-5 text-accent" strokeWidth={2} />
+                  <h4 className="font-serif text-xl font-bold text-primary">Objectifs</h4>
+                </div>
+                <ul className="grid md:grid-cols-2 gap-3">
+                  {activePole.details.objectifs.map((o) => (
+                    <li key={o} className="flex items-start gap-3 p-3 rounded-lg bg-muted/40 text-[15px] text-foreground leading-snug">
+                      <span className="mt-1 w-2 h-2 rounded-full bg-accent shrink-0" />
+                      <span>{o}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <div className="flex items-center gap-2 mb-4">
+                  <Compass className="w-5 h-5 text-accent" strokeWidth={2} />
+                  <h4 className="font-serif text-xl font-bold text-primary">Approche d'intervention</h4>
+                </div>
+                <ul className="space-y-2.5">
+                  {activePole.details.approche.map((a) => (
+                    <li key={a} className="flex items-start gap-3 text-[15px] text-foreground">
+                      <span className="mt-1.5 w-2 h-2 rounded-full bg-accent shrink-0" />
+                      <span>{a}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary to-primary/90 p-6 md:p-7 text-primary-foreground">
+                <Heart className="absolute -top-4 -right-4 w-28 h-28 text-accent/20" strokeWidth={1.2} />
+                <div className="relative">
+                  <div className="text-xs uppercase tracking-[0.3em] text-accent font-semibold mb-3">Notre engagement</div>
+                  <p className="text-base md:text-lg leading-relaxed text-primary-foreground/95">
+                    {activePole.details.engagement}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </>
+        )}
+      </DialogContent>
+    </Dialog>
+    </section>
+  );
+};
 
 export default Poles;
