@@ -8,7 +8,7 @@ const tailWords = ["pour", "la", "Centrafrique"];
 
 const stats = [
   { k: "7", v: "Pôles d'intervention" },
-  { k: "99", v: "Ans d'engagement" },
+  { k: "24/7", v: "Engagement continu" },
   { k: "100%", v: "Vision multisectorielle" },
   { k: "RCA", v: "Zone d'action" },
 ];
