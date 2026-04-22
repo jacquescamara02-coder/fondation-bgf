@@ -326,7 +326,13 @@ const Poles = () => {
               <div>
                 <div className="flex items-center gap-2 mb-4">
                   <Compass className="w-5 h-5 text-accent" strokeWidth={2} />
-                  <h4 className="font-serif text-xl font-bold text-primary">Approche d'intervention</h4>
+                  <h4 className="font-serif text-xl font-bold text-primary">
+                    {activePole.title === "Automobile"
+                      ? "Clientèle"
+                      : activePole.title === "Cabinet BGF Consulting"
+                      ? "Approche"
+                      : "Approche d'intervention"}
+                  </h4>
                 </div>
                 {activePole.details.approcheIntro && (
                   <p className="text-[15px] text-muted-foreground mb-3">
@@ -370,6 +376,18 @@ const Poles = () => {
                     <div className="text-xs uppercase tracking-[0.3em] text-accent font-semibold mb-3">Notre engagement</div>
                     <p className="text-base md:text-lg leading-relaxed text-primary-foreground/95">
                       {activePole.details.engagement}
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {activePole.details.positionnement && (
+                <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary to-primary/90 p-6 md:p-7 text-primary-foreground">
+                  <Heart className="absolute -top-4 -right-4 w-28 h-28 text-accent/20" strokeWidth={1.2} />
+                  <div className="relative">
+                    <div className="text-xs uppercase tracking-[0.3em] text-accent font-semibold mb-3">Positionnement</div>
+                    <p className="text-base md:text-lg leading-relaxed text-primary-foreground/95">
+                      {activePole.details.positionnement}
                     </p>
                   </div>
                 </div>
