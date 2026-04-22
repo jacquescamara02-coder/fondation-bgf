@@ -373,31 +373,33 @@ const Poles = () => {
                 </ul>
               </div>
 
-              <div>
-                <div className="flex items-center gap-2 mb-4">
-                  <Compass className="w-5 h-5 text-accent" strokeWidth={2} />
-                  <h4 className="font-serif text-xl font-bold text-primary">
-                    {activePole.title === "Automobile" || activePole.title === "Import-Export"
-                      ? "Clientèle"
-                      : activePole.title === "Cabinet BGF Consulting"
-                      ? "Approche"
-                      : "Approche d'intervention"}
-                  </h4>
+              {activePole.details.approche.length > 0 && (
+                <div>
+                  <div className="flex items-center gap-2 mb-4">
+                    <Compass className="w-5 h-5 text-accent" strokeWidth={2} />
+                    <h4 className="font-serif text-xl font-bold text-primary">
+                      {activePole.title === "Automobile" || activePole.title === "Import-Export"
+                        ? "Clientèle"
+                        : activePole.title === "Cabinet BGF Consulting"
+                        ? "Approche"
+                        : "Approche d'intervention"}
+                    </h4>
+                  </div>
+                  {activePole.details.approcheIntro && (
+                    <p className="text-[15px] text-muted-foreground mb-3">
+                      {activePole.details.approcheIntro}
+                    </p>
+                  )}
+                  <ul className="space-y-2.5">
+                    {activePole.details.approche.map((a) => (
+                      <li key={a} className="flex items-start gap-3 text-[15px] text-foreground">
+                        <span className="mt-1.5 w-2 h-2 rounded-full bg-accent shrink-0" />
+                        <span>{a}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                {activePole.details.approcheIntro && (
-                  <p className="text-[15px] text-muted-foreground mb-3">
-                    {activePole.details.approcheIntro}
-                  </p>
-                )}
-                <ul className="space-y-2.5">
-                  {activePole.details.approche.map((a) => (
-                    <li key={a} className="flex items-start gap-3 text-[15px] text-foreground">
-                      <span className="mt-1.5 w-2 h-2 rounded-full bg-accent shrink-0" />
-                      <span>{a}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              )}
 
               {activePole.details.valeurAjoutee && (
                 <div>
