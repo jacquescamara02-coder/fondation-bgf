@@ -58,6 +58,7 @@ const Particles = () => {
 const Hero = () => {
   const [mounted, setMounted] = useState(false);
   const [query, setQuery] = useState("");
+  const [focused, setFocused] = useState(false);
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -110,6 +111,7 @@ const Hero = () => {
             onSubmit={(e) => {
               e.preventDefault();
               goToPoles();
+              setFocused(false);
             }}
             role="search"
             aria-label="Rechercher un pôle d'intervention"
@@ -120,6 +122,8 @@ const Hero = () => {
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
+              onFocus={() => setFocused(true)}
+              onBlur={() => setTimeout(() => setFocused(false), 200)}
               placeholder="Rechercher un pôle : santé, automobile, agropastorale…"
               className="flex-1 bg-transparent outline-none text-sm md:text-[15px] text-primary-foreground placeholder:text-primary-foreground/55 py-1.5"
               aria-label="Rechercher un pôle"
@@ -133,27 +137,30 @@ const Hero = () => {
             </button>
           </form>
 
-          <div className="mt-3 flex flex-wrap items-center gap-2 max-w-3xl">
-            <span className="text-xs uppercase tracking-[0.22em] text-primary-foreground/60 pr-1">
-              Accès rapide
-            </span>
-            {(normalized ? matches : poleSuggestions.slice(0, 4)).slice(0, 4).map((p) => (
-              <a
-                key={p.title}
-                href="#poles"
-                onClick={() => goToPoles()}
-                className="group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-foreground/8 hover:bg-primary-foreground/14 border border-primary-foreground/15 text-primary-foreground/85 text-xs font-medium transition-all"
-              >
-                <span className="truncate max-w-[170px]">{p.title}</span>
-                <ArrowRight className="w-3 h-3 opacity-60 group-hover:translate-x-0.5 transition-all" />
-              </a>
-            ))}
-            {normalized && matches.length === 0 && (
-              <span className="text-xs text-primary-foreground/65 px-1">
-                Aucun résultat, appuyez sur Explorer pour voir tous les pôles.
-              </span>
-            )}
-          </div>
+          {focused && (
+            <div className="mt-3 flex flex-wrap items-center gap-2 max-w-3xl animate-fade-up">
+              {matches.slice(0, 4).map((p) => (
+                <a
+                  key={p.title}
+                  href="#poles"
+                  onMouseDown={(e) => {
+                    e.preventDefault();
+                    goToPoles();
+                    setFocused(false);
+                  }}
+                  className="group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-foreground/8 hover:bg-primary-foreground/14 border border-primary-foreground/15 text-primary-foreground/85 text-xs font-medium transition-all"
+                >
+                  <span className="truncate max-w-[170px]">{p.title}</span>
+                  <ArrowRight className="w-3 h-3 opacity-60 group-hover:translate-x-0.5 transition-all" />
+                </a>
+              ))}
+              {matches.length === 0 && (
+                <span className="text-xs text-primary-foreground/65 px-1">
+                  Aucun résultat, appuyez sur Explorer pour voir tous les pôles.
+                </span>
+              )}
+            </div>
+          )}
         </div>
 
         {/* Animated headline (word reveal) */}
