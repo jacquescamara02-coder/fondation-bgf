@@ -2,7 +2,7 @@ import sante from "@/assets/pole-sante-maternelle.jpg";
 import consulting from "@/assets/pole-consulting-bgf.jpg";
 import auto from "@/assets/pole-automobile-bgf.jpg";
 import importExp from "@/assets/pole-import-export-bgf.jpg";
-import agro from "@/assets/pole-agro.jpg";
+import agro from "@/assets/pole-agropastorale-bgf.jpg";
 import immo from "@/assets/pole-immobiliere-bgf.jpg";
 import pharma from "@/assets/pole-pharma.jpg";
 import { ArrowUpRight } from "lucide-react";
@@ -14,7 +14,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
-import { Heart, Target, Compass, HandHeart, Sparkles, CheckCircle2 } from "lucide-react";
+import { Heart, Target, Compass, HandHeart, Sparkles, CheckCircle2, Layers, TrendingUp } from "lucide-react";
 
 type Pole = {
   img: string;
@@ -31,6 +31,9 @@ type Pole = {
     valeurAjoutee?: string[];
     engagement?: string;
     positionnement?: string;
+    domaines?: string[];
+    services?: string[];
+    impact?: string[];
   };
 };
 
@@ -206,7 +209,61 @@ const poles: Pole[] = [
     img: agro,
     tag: "Développement rural",
     title: "Agropastorale",
-    desc: "Autonomisation économique, création d'emplois ruraux et renforcement de la résilience des communautés.",
+    desc: "Levier stratégique pour le développement économique, la sécurité alimentaire et la valorisation des filières agricoles, avec une expertise en élevage halal.",
+    details: {
+      intro: [
+        "Le pôle Agropastorale de la FONDATION BGF constitue un levier stratégique pour le développement économique, la sécurité alimentaire et la valorisation des filières agricoles en République Centrafricaine.",
+        "Il intervient dans la promotion de l'agriculture durable et de l'élevage, avec une attention particulière portée à la mise en place de systèmes d'élevage respectant les normes halal, garantissant qualité, traçabilité et conformité aux exigences religieuses et sanitaires.",
+        "À travers une approche intégrée, ce pôle accompagne les producteurs, éleveurs, coopératives et partenaires dans le développement d'activités agropastorales durables, génératrices de revenus et adaptées aux réalités locales.",
+      ],
+      beneficiairesLabel: "Services proposés",
+      beneficiaires: [
+        "Fourniture d'intrants agricoles et d'équipements d'élevage",
+        "Appui technique aux éleveurs et coopératives",
+        "Mise en place de fermes agropastorales intégrées",
+        "Développement de chaînes de valeur halal (production → transformation → distribution)",
+        "Formation en bonnes pratiques d'élevage et en normes halal",
+        "Accompagnement de projets agricoles et pastoraux",
+      ],
+      objectifs: [
+        "Promouvoir des pratiques agricoles durables et résilientes",
+        "Renforcer la sécurité alimentaire et nutritionnelle",
+        "Développer et structurer la filière élevage halal",
+        "Améliorer la productivité et la qualité des productions animales",
+        "Soutenir les producteurs et éleveurs locaux",
+        "Favoriser l'autonomisation économique des communautés",
+      ],
+      domaines: [
+        "Agriculture (cultures vivrières, maraîchage, production végétale)",
+        "Élevage (bovin, ovin, caprin, avicole)",
+        "Filière élevage halal (production, transformation, distribution)",
+        "Sécurité alimentaire et nutrition",
+        "Chaînes de valeur agricoles et pastorales",
+      ],
+      approcheIntro: "Le pôle adopte une approche :",
+      approche: [
+        "Participative et communautaire",
+        "Respectueuse des normes sanitaires et halal",
+        "Orientée vers la durabilité et la résilience",
+        "Intégrant les dimensions économiques, sociales et culturelles",
+      ],
+      valeurAjoutee: [
+        "Intégration de la filière élevage halal dans une approche professionnelle",
+        "Connaissance du contexte rural en RCA",
+        "Capacité d'intervention en zones rurales et enclavées",
+        "Approche intégrée agriculture–élevage–nutrition",
+        "Contribution à la sécurité alimentaire et aux marchés locaux",
+      ],
+      impact: [
+        "Amélioration de la production agricole et animale",
+        "Développement d'une filière halal structurée et compétitive",
+        "Augmentation des revenus des ménages ruraux",
+        "Renforcement de la sécurité alimentaire",
+        "Création d'opportunités économiques durables",
+      ],
+      positionnement:
+        "La FONDATION BGF AGROPASTORALE se positionne comme un acteur innovant et structurant du développement rural en République Centrafricaine, notamment à travers la promotion de la filière halal, répondant à une demande croissante du marché.",
+    },
   },
   {
     img: immo,
@@ -373,6 +430,23 @@ const Poles = () => {
                 </ul>
               </div>
 
+              {activePole.details.domaines && activePole.details.domaines.length > 0 && (
+                <div>
+                  <div className="flex items-center gap-2 mb-4">
+                    <Layers className="w-5 h-5 text-accent" strokeWidth={2} />
+                    <h4 className="font-serif text-xl font-bold text-primary">Domaines d'intervention</h4>
+                  </div>
+                  <ul className="grid md:grid-cols-2 gap-3">
+                    {activePole.details.domaines.map((d) => (
+                      <li key={d} className="flex items-start gap-3 p-3 rounded-lg bg-muted/40 text-[15px] text-foreground leading-snug">
+                        <span className="mt-1 w-2 h-2 rounded-full bg-accent shrink-0" />
+                        <span>{d}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
               {activePole.details.approche.length > 0 && (
                 <div>
                   <div className="flex items-center gap-2 mb-4">
@@ -430,6 +504,26 @@ const Poles = () => {
                       {activePole.details.engagement}
                     </p>
                   </div>
+                </div>
+              )}
+
+              {activePole.details.impact && activePole.details.impact.length > 0 && (
+                <div>
+                  <div className="flex items-center gap-2 mb-4">
+                    <TrendingUp className="w-5 h-5 text-accent" strokeWidth={2} />
+                    <h4 className="font-serif text-xl font-bold text-primary">Impact attendu</h4>
+                  </div>
+                  <ul className="grid sm:grid-cols-2 gap-3">
+                    {activePole.details.impact.map((it) => (
+                      <li
+                        key={it}
+                        className="flex items-start gap-3 p-3 rounded-lg border border-accent/30 bg-accent-soft/30 text-[15px] text-foreground"
+                      >
+                        <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" strokeWidth={2} />
+                        <span>{it}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               )}
 
