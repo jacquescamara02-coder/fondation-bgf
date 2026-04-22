@@ -57,9 +57,25 @@ const Particles = () => {
 
 const Hero = () => {
   const [mounted, setMounted] = useState(false);
+  const [query, setQuery] = useState("");
+  const [focused, setFocused] = useState(false);
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  const normalized = query.trim().toLowerCase();
+  const matches = normalized
+    ? poleSuggestions.filter(
+        (p) =>
+          p.title.toLowerCase().includes(normalized) ||
+          p.tag.toLowerCase().includes(normalized),
+      )
+    : poleSuggestions;
+
+  const goToPoles = () => {
+    const el = document.getElementById("poles");
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
     <section id="top" className="relative min-h-[100svh] flex items-center overflow-hidden">
@@ -86,15 +102,75 @@ const Hero = () => {
       />
 
       <div className="relative container-pro pt-32 pb-24 text-primary-foreground w-full">
-        {/* Badge */}
+        {/* Search bar (replaces badge) */}
         <div
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-foreground/10 border border-primary-foreground/20 backdrop-blur-sm mb-6 animate-fade-up"
+          className="relative max-w-xl mb-8 animate-fade-up"
           style={{ animationDelay: "0.1s" }}
         >
-          <ShieldCheck className="w-4 h-4 text-accent" />
-          <span className="text-xs font-medium tracking-wide uppercase">
-            RCCM CA/BG/2025B413 — République Centrafricaine
-          </span>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              goToPoles();
+              setFocused(false);
+            }}
+            role="search"
+            aria-label="Rechercher un pôle d'intervention"
+            className="group relative flex items-center gap-2 pl-5 pr-2 py-2 rounded-full bg-primary-foreground/10 border border-primary-foreground/25 backdrop-blur-md shadow-elegant focus-within:border-accent/70 focus-within:bg-primary-foreground/15 transition-all"
+          >
+            <Search className="w-4 h-4 text-accent shrink-0" />
+            <input
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              onFocus={() => setFocused(true)}
+              onBlur={() => setTimeout(() => setFocused(false), 150)}
+              placeholder="Rechercher un pôle : santé, automobile, agropastorale…"
+              className="flex-1 bg-transparent outline-none text-sm md:text-[15px] text-primary-foreground placeholder:text-primary-foreground/55 py-1.5"
+              aria-label="Rechercher un pôle"
+            />
+            <button
+              type="submit"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-gradient-gold text-accent-foreground text-xs md:text-sm font-semibold shadow-gold hover:scale-[1.03] transition-transform"
+            >
+              Explorer
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </form>
+
+          {focused && (
+            <div className="absolute left-0 right-0 mt-2 z-20 rounded-2xl border border-border/60 bg-background/95 backdrop-blur-md shadow-elegant overflow-hidden animate-fade-up">
+              <div className="px-4 py-2 text-[10px] uppercase tracking-[0.25em] text-muted-foreground border-b border-border/60">
+                {matches.length > 0
+                  ? `${matches.length} pôle${matches.length > 1 ? "s" : ""} disponible${matches.length > 1 ? "s" : ""}`
+                  : "Aucun pôle correspondant"}
+              </div>
+              <ul className="max-h-72 overflow-y-auto py-1">
+                {matches.map((p) => (
+                  <li key={p.title}>
+                    <a
+                      href="#poles"
+                      onMouseDown={(e) => {
+                        e.preventDefault();
+                        goToPoles();
+                        setFocused(false);
+                      }}
+                      className="flex items-center justify-between gap-3 px-4 py-3 hover:bg-muted/60 transition-colors group"
+                    >
+                      <div className="min-w-0">
+                        <div className="text-sm font-semibold text-foreground truncate">
+                          {p.title}
+                        </div>
+                        <div className="text-[11px] uppercase tracking-wider text-muted-foreground mt-0.5">
+                          {p.tag}
+                        </div>
+                      </div>
+                      <ArrowRight className="w-4 h-4 text-accent opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
 
         {/* Animated headline (word reveal) */}
