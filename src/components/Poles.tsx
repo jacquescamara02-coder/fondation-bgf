@@ -2,7 +2,7 @@ import sante from "@/assets/pole-sante-maternelle.jpg";
 import consulting from "@/assets/pole-consulting-bgf.jpg";
 import auto from "@/assets/pole-automobile-bgf.jpg";
 import importExp from "@/assets/pole-import-export-bgf.jpg";
-import agro from "@/assets/pole-agro.jpg";
+import agro from "@/assets/pole-agropastorale-bgf.jpg";
 import immo from "@/assets/pole-immobiliere-bgf.jpg";
 import pharma from "@/assets/pole-pharma.jpg";
 import { ArrowUpRight } from "lucide-react";
@@ -31,6 +31,9 @@ type Pole = {
     valeurAjoutee?: string[];
     engagement?: string;
     positionnement?: string;
+    domaines?: string[];
+    services?: string[];
+    impact?: string[];
   };
 };
 
