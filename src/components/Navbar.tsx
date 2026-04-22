@@ -30,16 +30,16 @@ const Navbar = () => {
           : "bg-transparent"
       )}
     >
-      <div className="container-pro flex items-center justify-between h-20">
-        <a href="#top" className="flex items-center gap-3">
-          <div className="h-12 w-12 rounded-full bg-white shadow-soft p-1 flex items-center justify-center shrink-0 ring-1 ring-black/5">
-            <img src={logo} alt="Logo Fondation BGF" width={44} height={44} className="h-full w-full object-contain" />
+      <div className="container-pro flex items-center justify-between h-24 md:h-28">
+        <a href="#top" className="flex items-center gap-4">
+          <div className="h-16 w-16 md:h-20 md:w-20 rounded-full bg-white shadow-soft p-1.5 flex items-center justify-center shrink-0 ring-1 ring-black/5">
+            <img src={logo} alt="Logo Fondation BGF" width={72} height={72} className="h-full w-full object-contain" />
           </div>
           <div className="leading-tight">
-            <div className={cn("font-serif text-lg font-bold", scrolled ? "text-primary" : "text-primary-foreground")}>
+            <div className={cn("font-serif text-xl md:text-2xl font-bold", scrolled ? "text-primary" : "text-primary-foreground")}>
               FONDATION BGF
             </div>
-            <div className={cn("text-[10px] uppercase tracking-[0.2em]", scrolled ? "text-muted-foreground" : "text-primary-foreground/70")}>
+            <div className={cn("text-[11px] md:text-xs uppercase tracking-[0.2em]", scrolled ? "text-muted-foreground" : "text-primary-foreground/70")}>
               Babadjo Groupe & Frère
             </div>
           </div>
