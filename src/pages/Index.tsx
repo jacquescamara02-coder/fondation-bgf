@@ -21,9 +21,9 @@ const Index = () => {
       <Poles />
       <Ecosystem />
       <Testimonials />
+      <Faq />
       <Contact />
       <MapSection />
-      <Faq />
       <Footer />
       <WhatsAppButton />
     </main>
