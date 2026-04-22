@@ -121,3 +121,76 @@
 .animate-fade-up {
   animation: fade-up 0.7s var(--transition-smooth) both;
 }
+
+/* Hero animations */
+@keyframes ken-burns {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.15) translate(-2%, -1%); }
+}
+.animate-ken-burns {
+  animation: ken-burns 20s ease-in-out infinite alternate;
+}
+
+@keyframes float-particle {
+  0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 0.7; }
+  90% { opacity: 0.7; }
+  50% { transform: translateY(-120px) translateX(20px); }
+}
+.animate-float-particle {
+  animation: float-particle linear infinite;
+}
+
+@keyframes word-reveal {
+  from { opacity: 0; transform: translateY(40px) rotateX(-30deg); filter: blur(8px); }
+  to { opacity: 1; transform: translateY(0) rotateX(0); filter: blur(0); }
+}
+.animate-word-reveal {
+  animation: word-reveal 0.9s var(--transition-smooth) both;
+  display: inline-block;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.text-shimmer {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--accent)) 0%,
+    hsl(95 80% 65%) 25%,
+    hsl(var(--accent)) 50%,
+    hsl(95 80% 65%) 75%,
+    hsl(var(--accent)) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 hsl(var(--accent) / 0.6), var(--shadow-gold); }
+  50% { box-shadow: 0 0 0 14px hsl(var(--accent) / 0), var(--shadow-gold); }
+}
+.animate-glow-pulse {
+  animation: glow-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes scroll-hint {
+  0%, 100% { transform: translateY(0); opacity: 0.4; }
+  50% { transform: translateY(8px); opacity: 1; }
+}
+.animate-scroll-hint {
+  animation: scroll-hint 1.8s ease-in-out infinite;
+}
+
+@keyframes count-pop {
+  0% { opacity: 0; transform: translateY(20px) scale(0.8); }
+  60% { transform: translateY(-4px) scale(1.05); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.animate-count-pop {
+  animation: count-pop 0.8s var(--transition-smooth) both;
+}
