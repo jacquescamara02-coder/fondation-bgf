@@ -20,20 +20,20 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
 
-    /* Navy profond institutionnel */
-    --primary: 222 55% 16%;
-    --primary-foreground: 38 38% 96%;
-    --primary-glow: 222 60% 28%;
+    /* Bleu marine du logo (institutionnel) */
+    --primary: 222 65% 22%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 222 60% 34%;
 
-    /* Or chaud accent */
-    --accent: 38 65% 52%;
-    --accent-foreground: 222 55% 12%;
-    --accent-soft: 38 70% 92%;
+    /* Vert nature du logo (accent) */
+    --accent: 95 55% 42%;
+    --accent-foreground: 0 0% 100%;
+    --accent-soft: 95 50% 92%;
 
     --secondary: 222 30% 94%;
     --secondary-foreground: 222 47% 16%;
 
-    --muted: 38 20% 95%;
+    --muted: 222 20% 96%;
     --muted-foreground: 222 15% 40%;
 
     --whatsapp: 142 70% 45%;
@@ -42,20 +42,20 @@
     --destructive: 0 84% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 222 20% 88%;
-    --input: 222 20% 90%;
-    --ring: 38 65% 52%;
+    --border: 222 22% 89%;
+    --input: 222 22% 91%;
+    --ring: 95 55% 42%;
 
     --radius: 0.75rem;
 
     /* Gradients & shadows */
-    --gradient-hero: linear-gradient(135deg, hsl(222 55% 10% / 0.92) 0%, hsl(222 55% 16% / 0.78) 50%, hsl(38 65% 30% / 0.55) 100%);
-    --gradient-gold: linear-gradient(135deg, hsl(38 75% 58%), hsl(38 65% 45%));
-    --gradient-navy: linear-gradient(160deg, hsl(222 55% 12%), hsl(222 55% 22%));
-    --gradient-soft: linear-gradient(180deg, hsl(38 33% 98%), hsl(38 33% 95%));
+    --gradient-hero: linear-gradient(135deg, hsl(222 70% 12% / 0.94) 0%, hsl(222 65% 22% / 0.82) 55%, hsl(95 50% 28% / 0.55) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(95 60% 48%), hsl(95 55% 38%));
+    --gradient-navy: linear-gradient(160deg, hsl(222 65% 16%), hsl(222 65% 28%));
+    --gradient-soft: linear-gradient(180deg, hsl(0 0% 100%), hsl(222 25% 97%));
 
-    --shadow-elegant: 0 20px 50px -20px hsl(222 55% 16% / 0.25);
-    --shadow-gold: 0 12px 40px -12px hsl(38 65% 52% / 0.45);
+    --shadow-elegant: 0 20px 50px -20px hsl(222 65% 22% / 0.28);
+    --shadow-gold: 0 12px 40px -12px hsl(95 55% 42% / 0.45);
     --shadow-soft: 0 4px 20px -8px hsl(222 30% 30% / 0.12);
 
     --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
