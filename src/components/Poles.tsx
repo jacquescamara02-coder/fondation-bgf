@@ -365,7 +365,7 @@ const Poles = () => {
                 <div className="flex items-center gap-2 mb-4">
                   <Compass className="w-5 h-5 text-accent" strokeWidth={2} />
                   <h4 className="font-serif text-xl font-bold text-primary">
-                    {activePole.title === "Automobile"
+                    {activePole.title === "Automobile" || activePole.title === "Import-Export"
                       ? "Clientèle"
                       : activePole.title === "Cabinet BGF Consulting"
                       ? "Approche"
