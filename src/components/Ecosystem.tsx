@@ -33,12 +33,7 @@ const Ecosystem = () => (
 
       <div className="mt-16 flex justify-center">
         <Link
-          to="/#poles"
-          onClick={(e) => {
-            e.preventDefault();
-            const el = document.getElementById("poles");
-            if (el) el.scrollIntoView({ behavior: "smooth" });
-          }}
+          to="/poles"
           className="group relative inline-flex items-center gap-5 px-8 py-6 md:px-10 md:py-7 rounded-2xl bg-card border border-border shadow-soft hover:shadow-elegant hover:border-accent/50 transition-all"
           aria-label="Voir les 8 pôles d'activités"
         >
