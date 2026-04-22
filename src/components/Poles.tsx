@@ -1,43 +1,6 @@
-import sante from "@/assets/pole-sante-maternelle.jpg";
-import consulting from "@/assets/pole-consulting-bgf.jpg";
-import auto from "@/assets/pole-automobile-bgf.jpg";
-import importExp from "@/assets/pole-import-export-bgf.jpg";
-import agro from "@/assets/pole-agropastorale-bgf.jpg";
-import immo from "@/assets/pole-immobiliere-bgf.jpg";
-import pharma from "@/assets/pole-pharma.jpg";
 import { ArrowUpRight } from "lucide-react";
-import { useState } from "react";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from "@/components/ui/dialog";
-import { Heart, Target, Compass, HandHeart, Sparkles, CheckCircle2, Layers, TrendingUp } from "lucide-react";
-
-type Pole = {
-  img: string;
-  tag: string;
-  title: string;
-  desc: string;
-  details?: {
-    intro: string[];
-    beneficiaires?: string[];
-    beneficiairesLabel?: string;
-    objectifs: string[];
-    approche: string[];
-    approcheIntro?: string;
-    valeurAjoutee?: string[];
-    engagement?: string;
-    positionnement?: string;
-    domaines?: string[];
-    services?: string[];
-    impact?: string[];
-  };
-};
-
-const poles: Pole[] = [
+import { Link } from "react-router-dom";
+import { poles } from "@/data/poles";
   {
     img: sante,
     tag: "À but non lucratif",
