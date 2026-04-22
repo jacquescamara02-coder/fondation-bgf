@@ -32,7 +32,9 @@ const Navbar = () => {
     >
       <div className="container-pro flex items-center justify-between h-20">
         <a href="#top" className="flex items-center gap-3">
-          <img src={logo} alt="Logo Fondation BGF" width={44} height={44} className="h-11 w-11 object-contain" />
+          <div className="h-12 w-12 rounded-full bg-white shadow-soft p-1 flex items-center justify-center shrink-0 ring-1 ring-black/5">
+            <img src={logo} alt="Logo Fondation BGF" width={44} height={44} className="h-full w-full object-contain" />
+          </div>
           <div className="leading-tight">
             <div className={cn("font-serif text-lg font-bold", scrolled ? "text-primary" : "text-primary-foreground")}>
               FONDATION BGF

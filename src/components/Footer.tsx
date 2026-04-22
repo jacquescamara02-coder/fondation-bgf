@@ -6,7 +6,9 @@ const Footer = () => (
       <div className="grid md:grid-cols-12 gap-10 pb-14 border-b border-primary-foreground/15">
         <div className="md:col-span-5">
           <div className="flex items-center gap-3 mb-5">
-            <img src={logo} alt="Logo BGF" width={48} height={48} className="h-12 w-12 object-contain" />
+            <div className="h-14 w-14 rounded-full bg-white p-1.5 flex items-center justify-center shrink-0">
+              <img src={logo} alt="Logo BGF" width={48} height={48} className="h-full w-full object-contain" />
+            </div>
             <div>
               <div className="font-serif text-lg font-bold">FONDATION BGF</div>
               <div className="text-[10px] uppercase tracking-[0.2em] text-primary-foreground/60">Babadjo Groupe & Frère</div>
