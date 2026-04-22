@@ -251,20 +251,24 @@ const Poles = () => {
                 </div>
               </DialogDescription>
 
-              <div className="bg-accent-soft/40 border-l-4 border-accent rounded-r-xl p-5 md:p-6">
-                <div className="flex items-center gap-2 mb-3">
-                  <HandHeart className="w-5 h-5 text-accent" strokeWidth={2} />
-                  <h4 className="font-serif text-lg font-bold text-primary">Bénéficiaires prioritaires</h4>
+              {activePole.details.beneficiaires && (
+                <div className="bg-accent-soft/40 border-l-4 border-accent rounded-r-xl p-5 md:p-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <HandHeart className="w-5 h-5 text-accent" strokeWidth={2} />
+                    <h4 className="font-serif text-lg font-bold text-primary">
+                      {activePole.details.beneficiairesLabel ?? "Bénéficiaires prioritaires"}
+                    </h4>
+                  </div>
+                  <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2">
+                    {activePole.details.beneficiaires.map((b) => (
+                      <li key={b} className="flex items-start gap-2.5 text-[15px] text-foreground">
+                        <span className="mt-2 w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="space-y-2">
-                  {activePole.details.beneficiaires.map((b) => (
-                    <li key={b} className="flex items-start gap-2.5 text-[15px] text-foreground">
-                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              )}
 
               <div>
                 <div className="flex items-center gap-2 mb-4">
@@ -286,6 +290,11 @@ const Poles = () => {
                   <Compass className="w-5 h-5 text-accent" strokeWidth={2} />
                   <h4 className="font-serif text-xl font-bold text-primary">Approche d'intervention</h4>
                 </div>
+                {activePole.details.approcheIntro && (
+                  <p className="text-[15px] text-muted-foreground mb-3">
+                    {activePole.details.approcheIntro}
+                  </p>
+                )}
                 <ul className="space-y-2.5">
                   {activePole.details.approche.map((a) => (
                     <li key={a} className="flex items-start gap-3 text-[15px] text-foreground">
@@ -296,15 +305,37 @@ const Poles = () => {
                 </ul>
               </div>
 
-              <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary to-primary/90 p-6 md:p-7 text-primary-foreground">
-                <Heart className="absolute -top-4 -right-4 w-28 h-28 text-accent/20" strokeWidth={1.2} />
-                <div className="relative">
-                  <div className="text-xs uppercase tracking-[0.3em] text-accent font-semibold mb-3">Notre engagement</div>
-                  <p className="text-base md:text-lg leading-relaxed text-primary-foreground/95">
-                    {activePole.details.engagement}
-                  </p>
+              {activePole.details.valeurAjoutee && (
+                <div>
+                  <div className="flex items-center gap-2 mb-4">
+                    <Sparkles className="w-5 h-5 text-accent" strokeWidth={2} />
+                    <h4 className="font-serif text-xl font-bold text-primary">Valeur ajoutée</h4>
+                  </div>
+                  <ul className="grid sm:grid-cols-2 gap-3">
+                    {activePole.details.valeurAjoutee.map((v) => (
+                      <li
+                        key={v}
+                        className="flex items-start gap-3 p-3 rounded-lg border border-accent/30 bg-accent-soft/30 text-[15px] text-foreground"
+                      >
+                        <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" strokeWidth={2} />
+                        <span>{v}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </div>
+              )}
+
+              {activePole.details.engagement && (
+                <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary to-primary/90 p-6 md:p-7 text-primary-foreground">
+                  <Heart className="absolute -top-4 -right-4 w-28 h-28 text-accent/20" strokeWidth={1.2} />
+                  <div className="relative">
+                    <div className="text-xs uppercase tracking-[0.3em] text-accent font-semibold mb-3">Notre engagement</div>
+                    <p className="text-base md:text-lg leading-relaxed text-primary-foreground/95">
+                      {activePole.details.engagement}
+                    </p>
+                  </div>
+                </div>
+              )}
             </div>
           </>
         )}
