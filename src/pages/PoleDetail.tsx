@@ -17,6 +17,17 @@ const PoleDetail = () => {
     }
   }, [pole]);
 
+  const navigateToHash = (hash: string) => (e: React.MouseEvent) => {
+    if (window.location.pathname === "/") {
+      e.preventDefault();
+      const el = document.getElementById(hash);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+    // else: let Link navigate to "/", and the home page will load at top.
+    // We'll set the hash so a small effect can scroll after navigation.
+    sessionStorage.setItem("scrollToHash", hash);
+  };
+
   if (!pole) {
     return (
       <main className="min-h-screen bg-background">
