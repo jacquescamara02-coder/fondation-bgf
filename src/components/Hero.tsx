@@ -1,6 +1,16 @@
 import { useEffect, useState } from "react";
 import heroImg from "@/assets/hero-community.jpg";
-import { ArrowRight, ShieldCheck, ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown, Search } from "lucide-react";
+
+const poleSuggestions: { title: string; tag: string }[] = [
+  { title: "Santé Maternelle et Infantile", tag: "À but non lucratif" },
+  { title: "Cabinet BGF Consulting", tag: "Expertise" },
+  { title: "Automobile", tag: "Mobilité & Logistique" },
+  { title: "Import-Export", tag: "Commerce & Logistique" },
+  { title: "Agropastorale", tag: "Développement rural" },
+  { title: "Immobilière", tag: "Cadre de vie" },
+  { title: "Pharmacie", tag: "Santé publique" },
+];
 
 const titleWords = ["Bâtir", "un", "avenir"];
 const accentWord = "durable";
