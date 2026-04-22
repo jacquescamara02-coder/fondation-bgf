@@ -63,6 +63,7 @@ const PoleDetail = () => {
         <div className="container-pro relative">
           <Link
             to="/#poles"
+            onClick={navigateToHash("poles")}
             className="inline-flex items-center gap-2 text-sm text-primary-foreground/85 hover:text-accent transition mb-6"
           >
             <ArrowLeft className="w-4 h-4" /> Retour aux pôles
@@ -228,6 +229,7 @@ const PoleDetail = () => {
         <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
           <Link
             to="/#contact"
+            onClick={navigateToHash("contact")}
             className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-gold text-accent-foreground font-semibold shadow-gold hover:scale-[1.03] transition-transform"
           >
             Échanger sur ce pôle
@@ -235,6 +237,7 @@ const PoleDetail = () => {
           </Link>
           <Link
             to="/#poles"
+            onClick={navigateToHash("poles")}
             className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-border text-foreground hover:bg-muted/50 transition"
           >
             <ArrowLeft className="w-4 h-4" /> Voir tous les pôles
