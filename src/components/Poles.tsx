@@ -3,7 +3,7 @@ import consulting from "@/assets/pole-consulting-bgf.jpg";
 import auto from "@/assets/pole-automobile-bgf.jpg";
 import importExp from "@/assets/pole-import-export-bgf.jpg";
 import agro from "@/assets/pole-agro.jpg";
-import immo from "@/assets/pole-immo.jpg";
+import immo from "@/assets/pole-immobiliere-bgf.jpg";
 import pharma from "@/assets/pole-pharma.jpg";
 import { ArrowUpRight } from "lucide-react";
 import { useState } from "react";
@@ -212,7 +212,19 @@ const poles: Pole[] = [
     img: immo,
     tag: "Cadre de vie",
     title: "Immobilière",
-    desc: "Habitat, infrastructures et développement immobilier pour une construction et gestion responsable.",
+    desc: "Développement de logements modernes, accessibles et durables, contribuant à l'amélioration du cadre de vie.",
+    details: {
+      intro: [
+        "Le pôle Immobilière de la FONDATION BGF œuvre pour le développement de logements modernes, accessibles et durables, contribuant ainsi à l'amélioration du cadre de vie des populations.",
+        "À travers une approche responsable et structurée, ce pôle conçoit, réalise et gère des infrastructures pensées pour répondre aux besoins d'habitat d'aujourd'hui tout en anticipant les enjeux d'urbanisation de demain.",
+      ],
+      objectifs: [
+        "Construire et gérer des infrastructures modernes",
+        "Favoriser l'accès au logement",
+        "Participer à l'urbanisation durable",
+      ],
+      approche: [],
+    },
   },
   {
     img: pharma,
@@ -361,31 +373,33 @@ const Poles = () => {
                 </ul>
               </div>
 
-              <div>
-                <div className="flex items-center gap-2 mb-4">
-                  <Compass className="w-5 h-5 text-accent" strokeWidth={2} />
-                  <h4 className="font-serif text-xl font-bold text-primary">
-                    {activePole.title === "Automobile" || activePole.title === "Import-Export"
-                      ? "Clientèle"
-                      : activePole.title === "Cabinet BGF Consulting"
-                      ? "Approche"
-                      : "Approche d'intervention"}
-                  </h4>
+              {activePole.details.approche.length > 0 && (
+                <div>
+                  <div className="flex items-center gap-2 mb-4">
+                    <Compass className="w-5 h-5 text-accent" strokeWidth={2} />
+                    <h4 className="font-serif text-xl font-bold text-primary">
+                      {activePole.title === "Automobile" || activePole.title === "Import-Export"
+                        ? "Clientèle"
+                        : activePole.title === "Cabinet BGF Consulting"
+                        ? "Approche"
+                        : "Approche d'intervention"}
+                    </h4>
+                  </div>
+                  {activePole.details.approcheIntro && (
+                    <p className="text-[15px] text-muted-foreground mb-3">
+                      {activePole.details.approcheIntro}
+                    </p>
+                  )}
+                  <ul className="space-y-2.5">
+                    {activePole.details.approche.map((a) => (
+                      <li key={a} className="flex items-start gap-3 text-[15px] text-foreground">
+                        <span className="mt-1.5 w-2 h-2 rounded-full bg-accent shrink-0" />
+                        <span>{a}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                {activePole.details.approcheIntro && (
-                  <p className="text-[15px] text-muted-foreground mb-3">
-                    {activePole.details.approcheIntro}
-                  </p>
-                )}
-                <ul className="space-y-2.5">
-                  {activePole.details.approche.map((a) => (
-                    <li key={a} className="flex items-start gap-3 text-[15px] text-foreground">
-                      <span className="mt-1.5 w-2 h-2 rounded-full bg-accent shrink-0" />
-                      <span>{a}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              )}
 
               {activePole.details.valeurAjoutee && (
                 <div>
