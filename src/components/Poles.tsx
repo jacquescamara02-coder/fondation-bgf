@@ -1,5 +1,5 @@
 import sante from "@/assets/pole-sante-maternelle.jpg";
-import consulting from "@/assets/pole-consulting.jpg";
+import consulting from "@/assets/pole-consulting-bgf.jpg";
 import auto from "@/assets/pole-auto.jpg";
 import importExp from "@/assets/pole-import.jpg";
 import agro from "@/assets/pole-agro.jpg";
@@ -14,7 +14,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
-import { Heart, Target, Compass, HandHeart } from "lucide-react";
+import { Heart, Target, Compass, HandHeart, Sparkles, CheckCircle2 } from "lucide-react";
 
 type Pole = {
   img: string;
@@ -23,10 +23,13 @@ type Pole = {
   desc: string;
   details?: {
     intro: string[];
-    beneficiaires: string[];
+    beneficiaires?: string[];
+    beneficiairesLabel?: string;
     objectifs: string[];
     approche: string[];
-    engagement: string;
+    approcheIntro?: string;
+    valeurAjoutee?: string[];
+    engagement?: string;
   };
 };
 
