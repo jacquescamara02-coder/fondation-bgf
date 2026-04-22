@@ -14,7 +14,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
-import { Heart, Target, Compass, HandHeart, Sparkles, CheckCircle2 } from "lucide-react";
+import { Heart, Target, Compass, HandHeart, Sparkles, CheckCircle2, Layers, TrendingUp } from "lucide-react";
 
 type Pole = {
   img: string;
