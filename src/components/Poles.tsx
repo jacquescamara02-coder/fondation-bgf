@@ -1,7 +1,7 @@
 import sante from "@/assets/pole-sante-maternelle.jpg";
 import consulting from "@/assets/pole-consulting-bgf.jpg";
 import auto from "@/assets/pole-automobile-bgf.jpg";
-import importExp from "@/assets/pole-import.jpg";
+import importExp from "@/assets/pole-import-export-bgf.jpg";
 import agro from "@/assets/pole-agro.jpg";
 import immo from "@/assets/pole-immo.jpg";
 import pharma from "@/assets/pole-pharma.jpg";
@@ -160,9 +160,47 @@ const poles: Pole[] = [
   },
   {
     img: importExp,
-    tag: "Approvisionnement",
+    tag: "Commerce & Logistique",
     title: "Import-Export",
-    desc: "Facilitateur fiable et stratégique pour les besoins d'urgence comme pour les approvisionnements réguliers.",
+    desc: "Fourniture de biens et services dans tous les domaines, avec rapidité, fiabilité et un réseau de partenaires nationaux et internationaux.",
+    details: {
+      intro: [
+        "Le pôle Import-Export de la FONDATION BGF est spécialisé dans la fourniture de biens et services dans tous les domaines, avec un engagement fort en matière de rapidité, fiabilité et sérieux en République Centrafricaine.",
+        "Grâce à un réseau de partenaires nationaux et internationaux, ce secteur assure la livraison de produits diversifiés adaptés aux besoins des institutions internationales, ONG, partenaires techniques et financiers, administrations publiques, entreprises et particuliers.",
+        "Le pôle se positionne comme un facilitateur clé des échanges commerciaux et logistiques, capable de répondre efficacement aux demandes dans des délais optimisés.",
+      ],
+      beneficiairesLabel: "Services proposés",
+      beneficiaires: [
+        "Importation et exportation de biens divers",
+        "Approvisionnement multisectoriel (santé, logistique, équipements, etc.)",
+        "Livraison rapide sur l'ensemble du territoire",
+        "Gestion logistique et coordination des commandes",
+        "Appui aux projets humanitaires et institutionnels",
+      ],
+      objectifs: [
+        "Développer et sécuriser les échanges commerciaux internationaux",
+        "Assurer la fourniture rapide et fiable de biens dans tous les secteurs",
+        "Faciliter la logistique et la chaîne d'approvisionnement",
+        "Promouvoir les produits locaux sur les marchés internationaux",
+        "Répondre aux besoins spécifiques des partenaires avec professionnalisme",
+      ],
+      approcheIntro: "Notre clientèle couvre l'ensemble des acteurs nationaux et internationaux :",
+      approche: [
+        "Institutions internationales",
+        "ONG et partenaires techniques et financiers",
+        "Administrations publiques",
+        "Entreprises et particuliers",
+      ],
+      valeurAjoutee: [
+        "Capacité à livrer dans tous les domaines",
+        "Service rapide, fiable et professionnel",
+        "Connaissance du contexte et du marché en RCA",
+        "Réseau de partenaires locaux et internationaux",
+        "Flexibilité et adaptation aux besoins des clients",
+      ],
+      positionnement:
+        "Aujourd'hui, FONDATION BGF IMPORT-EXPORT est reconnue pour son efficacité, sa réactivité et son sérieux, faisant d'elle un acteur de confiance en République Centrafricaine dans le domaine du commerce et de la logistique.",
+    },
   },
   {
     img: agro,
@@ -327,7 +365,7 @@ const Poles = () => {
                 <div className="flex items-center gap-2 mb-4">
                   <Compass className="w-5 h-5 text-accent" strokeWidth={2} />
                   <h4 className="font-serif text-xl font-bold text-primary">
-                    {activePole.title === "Automobile"
+                    {activePole.title === "Automobile" || activePole.title === "Import-Export"
                       ? "Clientèle"
                       : activePole.title === "Cabinet BGF Consulting"
                       ? "Approche"
