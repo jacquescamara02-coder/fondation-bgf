@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo-bgf.png";
 import { cn } from "@/lib/utils";
+import { Link } from "react-router-dom";
 
 const links = [
-  { href: "#about", label: "À propos" },
-  { href: "#valeurs", label: "Valeurs" },
-  { href: "#poles", label: "Nos pôles" },
-  { href: "#avis", label: "Avis" },
-  { href: "#contact", label: "Contact" },
+  { to: "/vue-ensemble", label: "Vue d'ensemble" },
+  { to: "/engagements", label: "Engagements" },
+  { to: "/poles", label: "Nos pôles" },
+  { to: "/contact", label: "Contact" },
 ];
 
 const Navbar = () => {
@@ -31,7 +31,7 @@ const Navbar = () => {
       )}
     >
       <div className="container-pro flex items-center justify-between h-24 md:h-28">
-        <a href="#top" className="flex items-center gap-4">
+        <Link to="/" className="flex items-center gap-4">
           <div className="h-16 w-16 md:h-20 md:w-20 rounded-full bg-white shadow-soft p-1.5 flex items-center justify-center shrink-0 ring-1 ring-black/5">
             <img src={logo} alt="Logo Fondation BGF" width={72} height={72} className="h-full w-full object-contain" />
           </div>
@@ -43,27 +43,27 @@ const Navbar = () => {
               Babadjo Groupe & Frère
             </div>
           </div>
-        </a>
+        </Link>
 
         <nav className="hidden lg:flex items-center gap-8">
           {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
+            <Link
+              key={l.to}
+              to={l.to}
               className={cn(
                 "text-sm font-medium transition-colors hover:text-accent",
                 scrolled ? "text-foreground" : "text-primary-foreground"
               )}
             >
               {l.label}
-            </a>
+            </Link>
           ))}
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="inline-flex items-center px-5 py-2.5 rounded-full bg-gradient-gold text-accent-foreground font-semibold text-sm shadow-gold hover:scale-105 transition-transform"
           >
             Nous contacter
-          </a>
+          </Link>
         </nav>
 
         <button
@@ -79,14 +79,14 @@ const Navbar = () => {
         <div className="lg:hidden bg-background border-t border-border">
           <nav className="container-pro py-6 flex flex-col gap-4">
             {links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
+              <Link
+                key={l.to}
+                to={l.to}
                 onClick={() => setOpen(false)}
                 className="text-foreground font-medium py-2"
               >
                 {l.label}
-              </a>
+              </Link>
             ))}
           </nav>
         </div>

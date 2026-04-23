@@ -1,13 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Values from "@/components/Values";
-import Poles from "@/components/Poles";
-import Ecosystem from "@/components/Ecosystem";
-import Testimonials from "@/components/Testimonials";
-import Contact from "@/components/Contact";
-import MapSection from "@/components/MapSection";
-import Faq from "@/components/Faq";
+import ExploreMenu from "@/components/ExploreMenu";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { useEffect } from "react";
@@ -30,14 +23,7 @@ const Index = () => {
     <main className="min-h-screen bg-background">
       <Navbar />
       <Hero />
-      <About />
-      <Values />
-      <Poles />
-      <Ecosystem />
-      <Testimonials />
-      <Faq />
-      <Contact />
-      <MapSection />
+      <ExploreMenu />
       <Footer />
       <WhatsAppButton />
     </main>
