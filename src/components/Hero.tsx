@@ -1,6 +1,14 @@
 import { useEffect, useState } from "react";
 import heroImg from "@/assets/hero-community.jpg";
-import { ArrowRight, Menu, Search } from "lucide-react";
+import { ArrowRight, Menu, Search, Compass, LayoutGrid, Sparkles, Mail, X } from "lucide-react";
+import { Link } from "react-router-dom";
+
+const menuItems = [
+  { to: "/poles", icon: Compass, label: "Nos pôles", desc: "8 pôles d'expertise" },
+  { to: "/vue-ensemble", icon: LayoutGrid, label: "Vue d'ensemble", desc: "Identité & mission" },
+  { to: "/engagements", icon: Sparkles, label: "Nos engagements", desc: "Six valeurs fortes" },
+  { to: "/contact", icon: Mail, label: "Nous contacter", desc: "Formulaire, FAQ, avis" },
+];
 
 const poleSuggestions: { title: string; tag: string }[] = [
   { title: "Santé Maternelle et Infantile", tag: "À but non lucratif" },
@@ -52,6 +60,7 @@ const Hero = () => {
   const [mounted, setMounted] = useState(false);
   const [query, setQuery] = useState("");
   const [focused, setFocused] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -191,10 +200,12 @@ const Hero = () => {
 
       {/* Scroll hint */}
       {/* Floating menu pill */}
-      <a
-        href="#about"
+      <button
+        type="button"
+        onClick={() => setMenuOpen(true)}
         aria-label="Ouvrir le menu de navigation"
-        className="group absolute bottom-8 left-1/2 -translate-x-1/2 inline-flex items-center gap-3 pl-2 pr-5 py-2 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/15 backdrop-blur-md border border-primary-foreground/25 hover:border-accent/60 shadow-elegant transition-all"
+        aria-expanded={menuOpen}
+        className="group absolute bottom-8 left-1/2 -translate-x-1/2 inline-flex items-center gap-3 pl-2 pr-5 py-2 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/15 backdrop-blur-md border border-primary-foreground/25 hover:border-accent/60 shadow-elegant transition-all z-30"
       >
         <span className="flex items-center justify-center w-9 h-9 rounded-full bg-gradient-gold text-accent-foreground shadow-gold group-hover:scale-105 transition-transform">
           <Menu className="w-4 h-4" strokeWidth={2.2} />
@@ -206,7 +217,92 @@ const Hero = () => {
         <span className="hidden md:inline text-[11px] tracking-wide text-primary-foreground/65 group-hover:text-accent transition-colors">
           Explorer la fondation
         </span>
-      </a>
+      </button>
+
+      {/* Menu overlay */}
+      {menuOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-end md:items-center justify-center p-4 md:p-8 bg-primary/70 backdrop-blur-md animate-fade-up"
+          onClick={() => setMenuOpen(false)}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative w-full max-w-3xl bg-card rounded-3xl shadow-elegant border border-border overflow-hidden"
+          >
+            <div className="flex items-center justify-between px-6 md:px-8 pt-6 pb-4 border-b border-border">
+              <div>
+                <div className="text-[10px] uppercase tracking-[0.3em] text-accent font-semibold">
+                  Navigation
+                </div>
+                <div className="font-serif text-xl md:text-2xl font-bold text-primary mt-1">
+                  Explorer la Fondation
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setMenuOpen(false)}
+                aria-label="Fermer le menu"
+                className="w-10 h-10 rounded-full bg-secondary hover:bg-accent hover:text-accent-foreground text-foreground inline-flex items-center justify-center transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="p-4 md:p-6 grid sm:grid-cols-2 gap-3">
+              {menuItems.map(({ to, icon: Icon, label, desc }, i) => (
+                <Link
+                  key={to + label}
+                  to={to}
+                  onClick={() => setMenuOpen(false)}
+                  className={`group relative flex items-center gap-4 p-4 md:p-5 rounded-2xl border transition-all overflow-hidden ${
+                    i === 0
+                      ? "sm:col-span-2 bg-gradient-to-r from-primary to-primary/90 border-accent/40 text-primary-foreground hover:shadow-elegant"
+                      : "bg-secondary/40 hover:bg-secondary border-border hover:border-accent/40"
+                  }`}
+                >
+                  <div
+                    className={`shrink-0 w-12 h-12 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110 ${
+                      i === 0
+                        ? "bg-gradient-gold text-accent-foreground shadow-gold"
+                        : "bg-accent-soft text-accent group-hover:bg-gradient-gold group-hover:text-accent-foreground"
+                    }`}
+                  >
+                    <Icon className="w-5 h-5" strokeWidth={1.8} />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2">
+                      {i === 0 && (
+                        <span className="text-[9px] uppercase tracking-[0.22em] font-semibold text-accent">
+                          À la une
+                        </span>
+                      )}
+                    </div>
+                    <div
+                      className={`font-serif text-base md:text-lg font-bold leading-tight ${
+                        i === 0 ? "text-primary-foreground" : "text-primary"
+                      }`}
+                    >
+                      {label}
+                    </div>
+                    <div
+                      className={`text-xs md:text-sm mt-0.5 ${
+                        i === 0 ? "text-primary-foreground/70" : "text-muted-foreground"
+                      }`}
+                    >
+                      {desc}
+                    </div>
+                  </div>
+                  <ArrowRight
+                    className={`w-5 h-5 shrink-0 transition-all group-hover:translate-x-1 ${
+                      i === 0 ? "text-accent" : "text-muted-foreground group-hover:text-accent"
+                    }`}
+                  />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
