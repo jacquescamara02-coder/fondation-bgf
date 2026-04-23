@@ -1,6 +1,14 @@
 import { useEffect, useState } from "react";
 import heroImg from "@/assets/hero-community.jpg";
-import { ArrowRight, Menu, Search } from "lucide-react";
+import { ArrowRight, Menu, Search, Compass, LayoutGrid, Sparkles, Mail, X } from "lucide-react";
+import { Link } from "react-router-dom";
+
+const menuItems = [
+  { to: "/poles", icon: Compass, label: "Nos pôles", desc: "8 pôles d'expertise" },
+  { to: "/vue-ensemble", icon: LayoutGrid, label: "Vue d'ensemble", desc: "Identité & mission" },
+  { to: "/engagements", icon: Sparkles, label: "Nos engagements", desc: "Six valeurs fortes" },
+  { to: "/contact", icon: Mail, label: "Nous contacter", desc: "Formulaire, FAQ, avis" },
+];
 
 const poleSuggestions: { title: string; tag: string }[] = [
   { title: "Santé Maternelle et Infantile", tag: "À but non lucratif" },
