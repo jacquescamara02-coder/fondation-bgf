@@ -1,4 +1,5 @@
 import logo from "@/assets/logo-bgf.png";
+import { Link } from "react-router-dom";
 
 const Footer = () => (
   <footer className="bg-primary text-primary-foreground pt-20 pb-8">
@@ -22,11 +23,11 @@ const Footer = () => (
         <div className="md:col-span-3">
           <h4 className="font-serif font-bold mb-4 text-accent">Navigation</h4>
           <ul className="space-y-2.5 text-sm text-primary-foreground/75">
-            <li><a href="#about" className="hover:text-accent">À propos</a></li>
-            <li><a href="#valeurs" className="hover:text-accent">Valeurs</a></li>
-            <li><a href="#poles" className="hover:text-accent">Nos pôles</a></li>
-            <li><a href="#avis" className="hover:text-accent">Avis</a></li>
-            <li><a href="#contact" className="hover:text-accent">Contact</a></li>
+            <li><Link to="/vue-ensemble" className="hover:text-accent transition-colors">Vue d'ensemble</Link></li>
+            <li><Link to="/engagements" className="hover:text-accent transition-colors">Nos engagements</Link></li>
+            <li><Link to="/poles" className="hover:text-accent transition-colors">Nos pôles</Link></li>
+            <li><Link to="/contact" className="hover:text-accent transition-colors">Avis & FAQ</Link></li>
+            <li><Link to="/contact" className="hover:text-accent transition-colors">Contact</Link></li>
           </ul>
         </div>
 
