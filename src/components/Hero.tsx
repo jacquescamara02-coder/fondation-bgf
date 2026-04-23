@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import heroImg from "@/assets/hero-community.jpg";
-import { ArrowRight, ChevronDown, Search } from "lucide-react";
+import { ArrowRight, Menu, Search } from "lucide-react";
 
 const poleSuggestions: { title: string; tag: string }[] = [
   { title: "Santé Maternelle et Infantile", tag: "À but non lucratif" },
@@ -190,13 +190,22 @@ const Hero = () => {
       </div>
 
       {/* Scroll hint */}
+      {/* Floating menu pill */}
       <a
         href="#about"
-        aria-label="Faire défiler"
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-primary-foreground/70 hover:text-accent transition-colors"
+        aria-label="Ouvrir le menu de navigation"
+        className="group absolute bottom-8 left-1/2 -translate-x-1/2 inline-flex items-center gap-3 pl-2 pr-5 py-2 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/15 backdrop-blur-md border border-primary-foreground/25 hover:border-accent/60 shadow-elegant transition-all"
       >
-        <span className="text-[10px] uppercase tracking-[0.3em]">Découvrir</span>
-        <ChevronDown className="w-5 h-5 animate-scroll-hint" />
+        <span className="flex items-center justify-center w-9 h-9 rounded-full bg-gradient-gold text-accent-foreground shadow-gold group-hover:scale-105 transition-transform">
+          <Menu className="w-4 h-4" strokeWidth={2.2} />
+        </span>
+        <span className="text-[11px] md:text-xs uppercase tracking-[0.28em] font-semibold text-primary-foreground">
+          Menu
+        </span>
+        <span className="hidden md:inline-block w-px h-4 bg-primary-foreground/25" />
+        <span className="hidden md:inline text-[11px] tracking-wide text-primary-foreground/65 group-hover:text-accent transition-colors">
+          Explorer la fondation
+        </span>
       </a>
     </section>
   );
