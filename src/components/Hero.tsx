@@ -191,7 +191,7 @@ const Hero = () => {
 
       {/* Scroll hint */}
       <a
-        href="#explore"
+        href="#about"
         aria-label="Faire défiler"
         className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-primary-foreground/70 hover:text-accent transition-colors"
       >
