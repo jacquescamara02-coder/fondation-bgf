@@ -60,6 +60,7 @@ const Hero = () => {
   const [mounted, setMounted] = useState(false);
   const [query, setQuery] = useState("");
   const [focused, setFocused] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
     setMounted(true);
   }, []);
