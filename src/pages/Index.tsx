@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import ExploreMenu from "@/components/ExploreMenu";
+import SocialLinks from "@/components/SocialLinks";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { useEffect } from "react";
@@ -25,7 +25,7 @@ const Index = () => {
       <Navbar />
       <Hero />
       <About />
-      <ExploreMenu />
+      <SocialLinks />
       <Footer />
       <WhatsAppButton />
     </main>
