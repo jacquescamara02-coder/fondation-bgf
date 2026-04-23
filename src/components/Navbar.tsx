@@ -8,6 +8,7 @@ const links = [
   { to: "/vue-ensemble", label: "Vue d'ensemble" },
   { to: "/engagements", label: "Engagements" },
   { to: "/poles", label: "Nos pôles" },
+  { to: "/informations-legales", label: "Informations légales" },
   { to: "/contact", label: "Contact" },
 ];
 

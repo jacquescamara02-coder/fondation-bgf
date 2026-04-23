@@ -10,6 +10,7 @@ import PolesIndex from "./pages/PolesIndex.tsx";
 import Engagements from "./pages/Engagements.tsx";
 import Overview from "./pages/Overview.tsx";
 import ContactPage from "./pages/ContactPage.tsx";
+import LegalInfo from "./pages/LegalInfo.tsx";
 import Auth from "./pages/Auth.tsx";
 import AdminLayout from "./components/admin/AdminLayout.tsx";
 import Dashboard from "./pages/admin/Dashboard.tsx";
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/engagements" element={<Engagements />} />
           <Route path="/vue-ensemble" element={<Overview />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/informations-legales" element={<LegalInfo />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<Dashboard />} />
