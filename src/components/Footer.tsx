@@ -46,7 +46,10 @@ const Footer = () => (
 
       <div className="pt-8 flex flex-col md:flex-row justify-between gap-4 text-xs text-primary-foreground/60">
         <div>© {new Date().getFullYear()} Fondation Babadjo Groupe & Frère. Tous droits réservés.</div>
-        <div>Bangui, République Centrafricaine</div>
+        <div className="flex items-center gap-4">
+          <span>Bangui, République Centrafricaine</span>
+          <Link to="/auth" className="hover:text-accent transition-colors opacity-60 hover:opacity-100">Admin</Link>
+        </div>
       </div>
     </div>
   </footer>
