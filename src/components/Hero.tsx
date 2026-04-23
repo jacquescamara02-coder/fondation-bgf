@@ -101,10 +101,10 @@ const Hero = () => {
         style={{ background: "radial-gradient(circle, hsl(var(--accent)) 0%, transparent 70%)" }}
       />
 
-      <div className="relative container-pro pt-32 pb-24 text-primary-foreground w-full">
+      <div className="relative container-pro pt-32 pb-24 text-primary-foreground w-full flex flex-col items-center text-center">
         {/* Search bar (replaces badge) */}
         <div
-          className="relative max-w-xl mb-8 animate-fade-up"
+          className="relative w-full max-w-xl mb-12 animate-fade-up"
           style={{ animationDelay: "0.1s" }}
         >
           <form
@@ -125,7 +125,7 @@ const Hero = () => {
               onFocus={() => setFocused(true)}
               onBlur={() => setTimeout(() => setFocused(false), 200)}
               placeholder="Rechercher un pôle : santé, automobile, agropastorale…"
-              className="flex-1 bg-transparent outline-none text-sm md:text-[15px] text-primary-foreground placeholder:text-primary-foreground/55 py-1.5"
+              className="flex-1 bg-transparent outline-none text-sm md:text-[15px] text-primary-foreground placeholder:text-primary-foreground/55 py-1.5 text-left"
               aria-label="Rechercher un pôle"
             />
             <button
@@ -138,7 +138,7 @@ const Hero = () => {
           </form>
 
           {focused && (
-            <div className="mt-3 flex flex-wrap items-center gap-2 max-w-3xl animate-fade-up">
+            <div className="mt-3 flex flex-wrap items-center justify-center gap-2 max-w-3xl animate-fade-up">
               {matches.slice(0, 4).map((p) => (
                 <a
                   key={p.title}
@@ -194,54 +194,11 @@ const Hero = () => {
               </span>
             ))}
         </h1>
-
-        <p
-          className="mt-8 max-w-2xl text-lg md:text-xl text-primary-foreground/85 leading-relaxed animate-fade-up"
-          style={{ animationDelay: "1.2s" }}
-        >
-          La Fondation Babadjo Groupe & Frère agit au cœur des communautés à travers une approche multisectorielle :
-          santé, expertise, mobilité, agropastorale, immobilier et pharmacie.
-        </p>
-
-        <div
-          className="mt-10 flex flex-wrap gap-4 animate-fade-up"
-          style={{ animationDelay: "1.4s" }}
-        >
-          <a
-            href="#poles"
-            className="group relative inline-flex items-center gap-2 px-7 py-4 rounded-full bg-gradient-gold text-accent-foreground font-semibold shadow-gold hover:scale-105 transition-transform animate-glow-pulse overflow-hidden"
-          >
-            <span className="relative z-10">Découvrir nos pôles</span>
-            <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
-            <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-          </a>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 px-7 py-4 rounded-full border-2 border-primary-foreground/40 text-primary-foreground font-semibold hover:bg-primary-foreground/10 hover:border-primary-foreground/70 transition-all backdrop-blur-sm"
-          >
-            Devenir partenaire
-          </a>
-        </div>
-
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl">
-          {stats.map((s, i) => (
-            <div
-              key={s.v}
-              className="border-l-2 border-accent/70 pl-4 animate-count-pop hover:border-accent hover:translate-x-1 transition-all"
-              style={{ animationDelay: `${1.6 + i * 0.15}s` }}
-            >
-              <div className="font-serif text-3xl md:text-4xl font-bold text-accent">{s.k}</div>
-              <div className="text-xs md:text-sm text-primary-foreground/75 uppercase tracking-wider mt-1">
-                {s.v}
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
 
       {/* Scroll hint */}
       <a
-        href="#about"
+        href="#explore"
         aria-label="Faire défiler"
         className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-primary-foreground/70 hover:text-accent transition-colors"
       >
