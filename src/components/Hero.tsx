@@ -16,13 +16,6 @@ const titleWords = ["Bâtir", "un", "avenir"];
 const accentWord = "durable";
 const tailWords = ["pour", "la", "Centrafrique"];
 
-const stats = [
-  { k: "7", v: "Pôles d'intervention" },
-  { k: "24/7", v: "Engagement continu" },
-  { k: "100%", v: "Vision multisectorielle" },
-  { k: "RCA", v: "Zone d'action" },
-];
-
 const Particles = () => {
   // 18 particles with deterministic but varied positions/timings
   const particles = Array.from({ length: 18 }).map((_, i) => ({
