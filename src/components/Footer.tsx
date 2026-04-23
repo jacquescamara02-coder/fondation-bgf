@@ -20,7 +20,7 @@ const Footer = () => (
           </p>
         </div>
 
-        <div className="md:col-span-3">
+        <div className="md:col-span-4">
           <h4 className="font-serif font-bold mb-4 text-accent">Navigation</h4>
           <ul className="space-y-2.5 text-sm text-primary-foreground/75">
             <li><Link to="/poles" className="hover:text-accent transition-colors">Nos pôles</Link></li>
@@ -29,23 +29,6 @@ const Footer = () => (
             <li><Link to="/informations-legales" className="hover:text-accent transition-colors">Informations légales</Link></li>
             <li><Link to="/contact" className="hover:text-accent transition-colors">Avis & FAQ</Link></li>
             <li><Link to="/contact" className="hover:text-accent transition-colors">Contact</Link></li>
-          </ul>
-        </div>
-
-        <div className="md:col-span-4">
-          <h4 className="font-serif font-bold mb-4 text-accent">Nous contacter</h4>
-          <ul className="space-y-2 text-sm text-primary-foreground/75">
-            <li>Bangui, République Centrafricaine</li>
-            <li>
-              <Link to="/contact" className="hover:text-accent transition-colors">
-                Formulaire de contact
-              </Link>
-            </li>
-            <li>
-              <Link to="/informations-legales" className="hover:text-accent transition-colors">
-                Coordonnées légales & bancaires
-              </Link>
-            </li>
           </ul>
         </div>
       </div>
