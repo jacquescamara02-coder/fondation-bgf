@@ -5,6 +5,7 @@ import importExp from "@/assets/pole-import-export-bgf.jpg";
 import agro from "@/assets/pole-agropastorale-bgf.jpg";
 import immo from "@/assets/pole-immobiliere-bgf.jpg";
 import pharma from "@/assets/pole-pharma.jpg";
+import broderie from "@/assets/pole-broderie-bgf.jpg";
 
 export type PoleDetails = {
   intro: string[];
@@ -304,6 +305,60 @@ export const poles: Pole[] = [
         "Collaboration avec les acteurs de santé publique",
         "Sensibilisation et information des populations",
       ],
+    },
+  },
+  {
+    slug: "broderie-bgf",
+    img: broderie,
+    tag: "Textile & Impact social",
+    title: "Broderie BGF",
+    desc: "Atelier de broderie, confection et distribution textile à impact social, avec une ambition d'évoluer vers une plateforme industrielle textile de référence en RCA.",
+    details: {
+      intro: [
+        "La Broderie BGF est une initiative portée par la Fondation Babadjo Groupe & Frère, spécialisée dans la broderie personnalisée, la confection textile et la commercialisation de pagnes et de bazins.",
+        "Pensée comme une réponse concrète aux besoins immédiats du marché local, cette unité démarre avec un modèle souple, accessible et orienté résultats, tout en s'inscrivant dans une ambition plus large : évoluer vers une plateforme industrielle textile de référence en République Centrafricaine.",
+        "À travers une approche progressive, la Broderie BGF vise à structurer une chaîne de valeur locale, combinant qualité, accessibilité et impact social, en intégrant progressivement des populations vulnérables dans un environnement de travail formel.",
+      ],
+      positionnement:
+        "Un atelier textile moderne offrant des services de broderie personnalisée (logos, noms, identités visuelles), de couture sur mesure (tenues simples, uniformes, pièces événementielles) et de vente de pagnes et bazins (standards et personnalisés).",
+      beneficiairesLabel: "Bénéficiaires prioritaires",
+      beneficiaires: [
+        "Jeunes en phase d'apprentissage aux métiers du textile",
+        "Artisans et coopératives locales souhaitant monter en gamme",
+        "Institutions, PME et organisations ayant des besoins textiles ponctuels ou réguliers",
+      ],
+      objectifs: [
+        "Répondre aux besoins immédiats du marché : produits textiles accessibles, personnalisés et de qualité",
+        "Générer une activité économique durable basée sur la commande et la proximité client",
+        "Renforcer les compétences locales en broderie et confection",
+        "Structurer une base productive évolutive vers une unité semi-industrielle puis industrielle",
+        "Créer un impact social concret en intégrant des publics vulnérables dans une activité génératrice de revenus",
+      ],
+      services: [
+        "Broderie personnalisée (logos, noms, identités visuelles)",
+        "Couture sur mesure (tenues simples, uniformes, pièces événementielles)",
+        "Vente de pagnes et bazins (standards et personnalisés)",
+      ],
+      approcheIntro: "Une approche opérationnelle structurée :",
+      approche: [
+        "Production flexible et orientée commande, adaptée aux particuliers, entreprises et ONG",
+        "Montée en compétence progressive par l'apprentissage pratique de la broderie et de la couture",
+        "Ancrage local fort, valorisant les tissus (pagne, bazin) et le savoir-faire local",
+        "Organisation structurée dès le départ : standards de qualité, respect des délais, logique professionnelle",
+      ],
+      domaines: [
+        "Phase 1 – Atelier structuré : développement des activités de broderie, couture et vente textile",
+        "Phase 2 – Unité semi-industrielle : renforcement des capacités, équipement progressif et diversification des offres",
+        "Phase 3 – Pôle industriel textile : production à grande échelle pour répondre aux besoins nationaux et sous-régionaux",
+      ],
+      impact: [
+        "Réduire la dépendance aux importations textiles",
+        "Créer des emplois qualifiés au niveau local",
+        "Soutenir les besoins des institutions et organisations",
+        "Contribuer durablement au développement économique et social",
+      ],
+      engagement:
+        "Construire, étape par étape, un modèle textile local solide, capable de combiner performance économique, transmission de savoir-faire et impact social durable.",
     },
   },
 ];
