@@ -31,14 +31,14 @@ const Navbar = () => {
           : "bg-transparent"
       )}
     >
-      <div className="container-pro flex items-center justify-between h-24 md:h-28">
+      <div className="container-pro flex items-center justify-between h-28 md:h-32">
         <Link to="/" className="flex items-center gap-4">
-          <div className="h-16 w-16 md:h-20 md:w-20 rounded-full bg-white shadow-soft p-1.5 flex items-center justify-center shrink-0 ring-1 ring-black/5">
-            <img src={logo} alt="Logo Fondation BGF" width={72} height={72} className="h-full w-full object-contain" />
+          <div className="h-20 w-20 md:h-24 md:w-24 rounded-full bg-white shadow-soft p-1.5 flex items-center justify-center shrink-0 ring-1 ring-black/5">
+            <img src={logo} alt="Logo Fondation BGF" width={96} height={96} className="h-full w-full object-contain" />
           </div>
           <div className="leading-tight">
-            <div className={cn("font-serif text-xl md:text-2xl font-bold", scrolled ? "text-primary" : "text-primary-foreground")}>
-              FONDATION BGF
+            <div className={cn("font-serif text-xl md:text-2xl", scrolled ? "text-primary" : "text-primary-foreground")}>
+              <span className="font-normal">Fondation </span><span className="font-bold">BGF</span>
             </div>
             <div className={cn("text-[11px] md:text-xs uppercase tracking-[0.2em]", scrolled ? "text-muted-foreground" : "text-primary-foreground/70")}>
               Babadjo Groupe & Frère
