@@ -4,11 +4,11 @@ import { ArrowLeft, ArrowUpRight, CheckCircle2, Compass, HandHeart, Heart, Layer
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import { getPoleBySlug, poles } from "@/data/poles";
+import { usePoleBySlug } from "@/hooks/usePoles";
 
 const PoleDetail = () => {
   const { slug } = useParams<{ slug: string }>();
-  const pole = slug ? getPoleBySlug(slug) : undefined;
+  const { pole, loading, others } = usePoleBySlug(slug);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
@@ -27,6 +27,17 @@ const PoleDetail = () => {
     // We'll set the hash so a small effect can scroll after navigation.
     sessionStorage.setItem("scrollToHash", hash);
   };
+
+  if (loading) {
+    return (
+      <main className="min-h-screen bg-background">
+        <Navbar />
+        <section className="container-pro py-32 text-center">
+          <p className="text-muted-foreground">Chargement…</p>
+        </section>
+      </main>
+    );
+  }
 
   if (!pole) {
     return (
@@ -48,7 +59,8 @@ const PoleDetail = () => {
   }
 
   const d = pole.details;
-  const otherPoles = poles.filter((p) => p.slug !== pole.slug).slice(0, 3);
+  const desc = pole.description;
+  const otherPoles = others.slice(0, 3);
 
   return (
     <main className="min-h-screen bg-background">

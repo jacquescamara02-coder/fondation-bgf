@@ -1,8 +1,9 @@
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { poles } from "@/data/poles";
+import { usePoles } from "@/hooks/usePoles";
 
 const Poles = () => {
+  const { poles } = usePoles();
   return (
     <section id="poles" className="py-24 md:py-32 bg-background">
       <div className="container-pro">

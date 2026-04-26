@@ -4,9 +4,10 @@ import { ArrowLeft, ArrowUpRight, Sparkles } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import { poles } from "@/data/poles";
+import { usePoles } from "@/hooks/usePoles";
 
 const PolesIndex = () => {
+  const { poles } = usePoles();
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
     document.title = "Nos 8 pôles d'activités — Fondation BGF";
