@@ -59,7 +59,6 @@ const PoleDetail = () => {
   }
 
   const d = pole.details;
-  const desc = pole.descriptionription;
   const otherPoles = others.slice(0, 3);
 
   return (
