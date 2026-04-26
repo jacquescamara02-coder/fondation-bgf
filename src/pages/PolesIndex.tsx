@@ -77,7 +77,7 @@ const PolesIndex = () => {
                     <ArrowUpRight className="w-5 h-5 transition-transform group-hover:rotate-45" strokeWidth={2.2} />
                   </span>
                 </div>
-                <p className="text-muted-foreground text-[15px] leading-relaxed flex-1">{p.desc}</p>
+                <p className="text-muted-foreground text-[15px] leading-relaxed flex-1">{p.description}</p>
                 <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent group-hover:text-accent/80 transition-colors">
                   Voir les détails
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

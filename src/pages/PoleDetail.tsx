@@ -59,7 +59,7 @@ const PoleDetail = () => {
   }
 
   const d = pole.details;
-  const desc = pole.description;
+  const desc = pole.descriptionription;
   const otherPoles = others.slice(0, 3);
 
   return (
@@ -86,7 +86,7 @@ const PoleDetail = () => {
           <h1 className="font-serif text-4xl md:text-6xl font-bold text-primary-foreground leading-tight max-w-4xl">
             {pole.title}
           </h1>
-          <p className="mt-5 text-primary-foreground/90 text-lg max-w-3xl leading-relaxed">{pole.desc}</p>
+          <p className="mt-5 text-primary-foreground/90 text-lg max-w-3xl leading-relaxed">{pole.description}</p>
         </div>
       </section>
 
