@@ -4,9 +4,10 @@ import { ArrowLeft, ArrowUpRight, Sparkles } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import { poles } from "@/data/poles";
+import { usePoles } from "@/hooks/usePoles";
 
 const PolesIndex = () => {
+  const { poles } = usePoles();
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
     document.title = "Nos 8 pôles d'activités — Fondation BGF";
@@ -76,7 +77,7 @@ const PolesIndex = () => {
                     <ArrowUpRight className="w-5 h-5 transition-transform group-hover:rotate-45" strokeWidth={2.2} />
                   </span>
                 </div>
-                <p className="text-muted-foreground text-[15px] leading-relaxed flex-1">{p.desc}</p>
+                <p className="text-muted-foreground text-[15px] leading-relaxed flex-1">{p.description}</p>
                 <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent group-hover:text-accent/80 transition-colors">
                   Voir les détails
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

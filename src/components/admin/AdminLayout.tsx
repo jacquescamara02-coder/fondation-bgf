@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import {
-  LayoutDashboard, Briefcase, MessageSquareQuote, Newspaper,
+  LayoutDashboard, Briefcase, MessageSquareQuote, Newspaper, Layers,
   Type, Images, LogOut, Loader2, ExternalLink,
 } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
@@ -13,9 +13,10 @@ import { cn } from "@/lib/utils";
 const nav = [
   { to: "/admin", end: true, icon: LayoutDashboard, label: "Vue d'ensemble" },
   { to: "/admin/poles", icon: Briefcase, label: "Pôles" },
+  { to: "/admin/sections", icon: Layers, label: "Sections d'accueil" },
   { to: "/admin/testimonials", icon: MessageSquareQuote, label: "Témoignages" },
   { to: "/admin/articles", icon: Newspaper, label: "Articles" },
-  { to: "/admin/site-texts", icon: Type, label: "Textes du site" },
+  { to: "/admin/site-texts", icon: Type, label: "Textes & infos légales" },
   { to: "/admin/gallery", icon: Images, label: "Galerie" },
 ];
 

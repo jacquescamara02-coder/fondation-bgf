@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import heroImg from "@/assets/hero-community.jpg";
 import { ArrowRight, Menu, Search, Compass, LayoutGrid, Sparkles, Mail, X } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useSiteTexts } from "@/hooks/useSiteTexts";
 
 const menuItems = [
   { to: "/poles", icon: Compass, label: "Nos pôles", desc: "8 pôles d'expertise" },
@@ -19,10 +20,6 @@ const poleSuggestions: { title: string; tag: string }[] = [
   { title: "Immobilière", tag: "Cadre de vie" },
   { title: "Pharmacie", tag: "Santé publique" },
 ];
-
-const titleWords = ["Bâtir", "un", "avenir"];
-const accentWord = "durable";
-const tailWords = ["pour", "la", "Centrafrique"];
 
 const Particles = () => {
   // 18 particles with deterministic but varied positions/timings
@@ -61,9 +58,16 @@ const Hero = () => {
   const [query, setQuery] = useState("");
   const [focused, setFocused] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { t } = useSiteTexts();
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  const titleWords = t("hero_title_part1", "Bâtir un avenir").split(" ").filter(Boolean);
+  const accentWord = t("hero_title_accent", "durable");
+  const tailWords = t("hero_title_part2", "pour la Centrafrique").split(" ").filter(Boolean);
+  const searchPlaceholder = t("hero_search_placeholder", "Rechercher un pôle : santé, automobile, agropastorale…");
+  const menuLabel = t("hero_menu_label", "Explorer la fondation");
 
   const normalized = query.trim().toLowerCase();
   const matches = normalized
@@ -126,7 +130,7 @@ const Hero = () => {
               onChange={(e) => setQuery(e.target.value)}
               onFocus={() => setFocused(true)}
               onBlur={() => setTimeout(() => setFocused(false), 200)}
-              placeholder="Rechercher un pôle : santé, automobile, agropastorale…"
+              placeholder={searchPlaceholder}
               className="flex-1 bg-transparent outline-none text-sm md:text-[15px] text-primary-foreground placeholder:text-primary-foreground/55 py-1.5 text-left"
               aria-label="Rechercher un pôle"
             />
@@ -215,7 +219,7 @@ const Hero = () => {
         </span>
         <span className="hidden md:inline-block w-px h-4 bg-primary-foreground/25" />
         <span className="hidden md:inline text-[11px] tracking-wide text-primary-foreground/65 group-hover:text-accent transition-colors">
-          Explorer la fondation
+          {menuLabel}
         </span>
       </button>
 

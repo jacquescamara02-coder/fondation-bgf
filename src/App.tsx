@@ -19,6 +19,7 @@ import TestimonialsAdmin from "./pages/admin/TestimonialsAdmin.tsx";
 import ArticlesAdmin from "./pages/admin/ArticlesAdmin.tsx";
 import SiteTextsAdmin from "./pages/admin/SiteTextsAdmin.tsx";
 import GalleryAdmin from "./pages/admin/GalleryAdmin.tsx";
+import HomeSectionsAdmin from "./pages/admin/HomeSectionsAdmin.tsx";
 
 const queryClient = new QueryClient();
 
@@ -40,6 +41,7 @@ const App = () => (
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<Dashboard />} />
             <Route path="poles" element={<PolesAdmin />} />
+            <Route path="sections" element={<HomeSectionsAdmin />} />
             <Route path="testimonials" element={<TestimonialsAdmin />} />
             <Route path="articles" element={<ArticlesAdmin />} />
             <Route path="site-texts" element={<SiteTextsAdmin />} />
