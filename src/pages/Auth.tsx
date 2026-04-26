@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { z } from "zod";
-import { ArrowLeft, Loader2, Lock, Mail, Shield, User as UserIcon } from "lucide-react";
+import { ArrowLeft, Loader2, Lock, Mail, User as UserIcon } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -19,7 +19,6 @@ const signupSchema = z.object({
   display_name: z.string().trim().min(2, "Nom trop court").max(80),
   email: z.string().trim().email("Email invalide").max(255),
   password: z.string().min(8, "8 caractères minimum").max(72),
-  code: z.string().trim().min(4, "Code requis").max(200),
 });
 
 const Auth = () => {
@@ -67,7 +66,6 @@ const Auth = () => {
       display_name: fd.get("display_name"),
       email: fd.get("email"),
       password: fd.get("password"),
-      code: fd.get("code"),
     });
     if (!parsed.success) {
       toast({ title: "Erreur", description: parsed.error.issues[0].message, variant: "destructive" });
@@ -95,19 +93,8 @@ const Auth = () => {
       });
       return;
     }
-    const { error: grantErr } = await supabase.functions.invoke("grant-admin", {
-      body: { code: parsed.data.code },
-    });
     setLoading(false);
-    if (grantErr) {
-      toast({
-        title: "Compte créé, mais...",
-        description: grantErr.message ?? "Code secret refusé. Contactez l'administrateur.",
-        variant: "destructive",
-      });
-      return;
-    }
-    toast({ title: "Compte admin créé", description: "Bienvenue dans le tableau de bord." });
+    toast({ title: "Compte créé", description: "Bienvenue dans votre espace." });
     navigate("/admin");
   };
 
@@ -161,12 +148,11 @@ const Auth = () => {
                 <Field id="su-name" name="display_name" type="text" label="Nom complet" icon={UserIcon} placeholder="Jean Dupont" />
                 <Field id="su-email" name="email" type="email" label="Email" icon={Mail} placeholder="vous@exemple.com" />
                 <Field id="su-password" name="password" type="password" label="Mot de passe" icon={Lock} placeholder="8 caractères minimum" />
-                <Field id="su-code" name="code" type="password" label="Code secret administrateur" icon={Shield} placeholder="Code fourni par la direction" />
                 <Button type="submit" disabled={loading} className="w-full bg-gradient-gold text-accent-foreground hover:opacity-90 shadow-gold">
-                  {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : "Créer mon compte admin"}
+                  {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : "Créer mon compte"}
                 </Button>
                 <p className="text-[11px] text-center text-muted-foreground leading-relaxed">
-                  En créant un compte avec le code secret, vous obtenez les droits d'administration immédiatement.
+                  Après création, l'accès au tableau de bord doit être autorisé par un administrateur.
                 </p>
               </form>
             </TabsContent>
