@@ -89,6 +89,57 @@ export type Database = {
         }
         Relationships: []
       }
+      home_sections: {
+        Row: {
+          content: string | null
+          created_at: string
+          cta_label: string | null
+          cta_url: string | null
+          display_order: number
+          eyebrow: string | null
+          id: string
+          image_url: string | null
+          key: string
+          layout: string
+          published: boolean
+          subtitle: string | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          content?: string | null
+          created_at?: string
+          cta_label?: string | null
+          cta_url?: string | null
+          display_order?: number
+          eyebrow?: string | null
+          id?: string
+          image_url?: string | null
+          key: string
+          layout?: string
+          published?: boolean
+          subtitle?: string | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          content?: string | null
+          created_at?: string
+          cta_label?: string | null
+          cta_url?: string | null
+          display_order?: number
+          eyebrow?: string | null
+          id?: string
+          image_url?: string | null
+          key?: string
+          layout?: string
+          published?: boolean
+          subtitle?: string | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       poles: {
         Row: {
           created_at: string
@@ -164,6 +215,7 @@ export type Database = {
       site_texts: {
         Row: {
           id: string
+          image_url: string | null
           key: string
           label: string
           section: string
@@ -172,6 +224,7 @@ export type Database = {
         }
         Insert: {
           id?: string
+          image_url?: string | null
           key: string
           label: string
           section?: string
@@ -180,6 +233,7 @@ export type Database = {
         }
         Update: {
           id?: string
+          image_url?: string | null
           key?: string
           label?: string
           section?: string
